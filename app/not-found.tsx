@@ -1,0 +1,1 @@
+import Link from "next/link";export default function NotFound(){return <section className="container page-section empty-state"><strong>404</strong><h1>ไม่พบหน้าที่ต้องการ</h1><p>ลองกลับไปเลือกเครื่องมือจากหน้ารวมอีกครั้ง</p><Link className="primary-btn inline" href="/tools">เครื่องมือทั้งหมด →</Link></section>}
