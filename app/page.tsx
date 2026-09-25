@@ -1,2 +1,159 @@
-import Link from "next/link";import ToolCard from "@/components/ToolCard";import {categories,featuredTools,tools} from "@/data/tools";
-export default function HomePage(){const ready=tools.filter(t=>t.status==="ready").length;return <><section className="hero"><div className="container hero-inner"><div className="hero-kicker"><span></span>{tools.length} เครื่องมือ · ภาษาไทย · ใช้ฟรี</div><h1>เรื่องประจำวัน<br/><em>ให้ครบเครื่องช่วย</em></h1><p>คำนวณ แปลงค่า สร้าง QR จัดการรูป และเรื่องเล็กใหญ่ รวมไว้ในที่เดียว</p><form className="search-box" action="/tools"><span>⌕</span><input name="q" aria-label="ค้นหาเครื่องมือ" placeholder="ค้นหาเครื่องมือ หมวดหมู่ หรือสิ่งที่อยากทำ…"/><button type="submit">ค้นหา <b>→</b></button></form><div className="quick-links"><span>ลองใช้</span><Link href="/tools/thai-income-tax">คำนวณภาษี ↗</Link><Link href="/tools/resize-image">ย่อรูป ↗</Link><Link href="/tools/promptpay-qr">QR รับเงิน ↗</Link><Link href="/tools/car-loan">ผ่อนรถ ↗</Link></div></div></section><section className="category-strip"><div className="container chips scroll-x"><Link className="chip active" href="/tools">✦ ทั้งหมด</Link>{categories.map(c=><Link className="chip" key={c.slug} href={"/categories/"+c.slug}>{c.icon} {c.name}</Link>)}</div></section><section className="container section"><div className="section-heading"><div><span className="eyebrow">POPULAR TOOLS</span><h2>เครื่องมือแนะนำ</h2><p>เลือกเครื่องมือ แล้วเริ่มใช้งานได้ทันที</p></div><Link className="text-link" href="/tools">ดูทั้งหมด {tools.length} เครื่องมือ ↗</Link></div><div className="tools-grid featured-grid">{featuredTools.slice(0,8).map(t=><ToolCard key={t.slug} tool={t} featured/>)}</div></section><section className="gold-banner"><div className="container gold-banner-inner"><div><span className="eyebrow dark">PROMPTPAY</span><h2>รับเงินสะดวกขึ้น<br/>สร้าง QR พร้อมยอดเงิน</h2><p>สร้างบนอุปกรณ์ของคุณ ดาวน์โหลดเป็น PNG แล้วส่งต่อได้ทันที</p><Link className="dark-btn" href="/tools/promptpay-qr">สร้าง QR รับเงิน ↗</Link></div><div className="qr-art" aria-hidden="true"><span>▦</span></div></div></section><section className="container section"><div className="section-heading"><div><span className="eyebrow">BROWSE BY CATEGORY</span><h2>เลือกตามหมวดหมู่</h2><p>จัดกลุ่มตามงานที่ใช้บ่อย เพื่อหาเครื่องมือได้เร็วขึ้น</p></div><Link className="text-link" href="/categories">ดูหมวดหมู่ทั้งหมด ↗</Link></div><div className="category-grid">{categories.map(c=>{const n=tools.filter(t=>t.categorySlug===c.slug).length;return <Link className="category-card" key={c.slug} href={"/categories/"+c.slug}><span className="category-icon">{c.icon}</span><div><h3>{c.name}</h3><p>{c.description}</p></div><b>{n}</b><span className="card-arrow">↗</span></Link>})}</div></section><section className="trust-section"><div className="container trust-grid"><div><strong>{tools.length}</strong><span>เครื่องมือในแคตตาล็อก</span></div><div><strong>{ready}</strong><span>พร้อมใช้ใน V1</span></div><div><strong>0฿</strong><span>ใช้ฟรี ไม่ต้องสมัคร</span></div><div><strong>Thai</strong><span>ออกแบบเพื่อผู้ใช้ไทย</span></div></div></section></>}
+import Link from "next/link";
+import Reveal from "@/components/Reveal";
+import ToolCard from "@/components/ToolCard";
+import { categories, featuredTools, tools } from "@/data/tools";
+
+export default function HomePage() {
+  const ready = tools.filter((tool) => tool.status === "ready").length;
+
+  return (
+    <>
+      <section className="hero">
+        <div className="hero-mesh" aria-hidden="true"></div>
+        <div className="hero-orb orb-one" aria-hidden="true"></div>
+        <div className="hero-orb orb-two" aria-hidden="true"></div>
+
+        <div className="container hero-inner">
+          <div className="hero-kicker"><span></span>KROBKRUENG V1.1 · GOLD EXPERIENCE</div>
+          <h1>เครื่องมือออนไลน์ที่<br /><em>คิดมาเพื่อชีวิตจริง</em></h1>
+          <p>คำนวณ จัดการไฟล์ สร้าง QR และแก้เรื่องจุกจิกในแต่ละวัน<br className="desktop-break" />ด้วยประสบการณ์ที่เร็ว เรียบง่าย และดูดีทุกหน้าจอ</p>
+
+          <form className="search-box hero-search" action="/tools">
+            <span className="search-orb" aria-hidden="true">⌕</span>
+            <input name="q" aria-label="ค้นหาเครื่องมือ" placeholder="วันนี้อยากให้ครบเครื่องช่วยเรื่องอะไร?" />
+            <span className="search-hint">58 tools</span>
+            <button type="submit">ค้นหา <b>→</b></button>
+          </form>
+
+          <div className="quick-links">
+            <span>ยอดนิยมตอนนี้</span>
+            <Link href="/tools/thai-income-tax">ภาษีเงินได้ <b>↗</b></Link>
+            <Link href="/tools/promptpay-qr">QR รับเงิน <b>↗</b></Link>
+            <Link href="/tools/car-loan">ผ่อนรถ <b>↗</b></Link>
+            <Link href="/tools/resize-image">ย่อรูป <b>↗</b></Link>
+          </div>
+
+          <div className="hero-proof">
+            <div><strong>{tools.length}</strong><span>เครื่องมือทั้งหมด</span></div>
+            <i></i>
+            <div><strong>{ready}</strong><span>พร้อมใช้งาน</span></div>
+            <i></i>
+            <div><strong>0฿</strong><span>ใช้ฟรี ไม่ต้องสมัคร</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="category-strip">
+        <div className="container chips scroll-x">
+          <Link className="chip active" href="/tools"><span>✦</span> ทั้งหมด</Link>
+          {categories.map((category) => (
+            <Link className="chip" key={category.slug} href={"/categories/" + category.slug}>
+              <span>{category.icon}</span> {category.name}
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <Reveal>
+        <section className="container section">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">CURATED FOR YOU</span>
+              <h2>เครื่องมือที่ควรมีติดมือ</h2>
+              <p>งานที่คนไทยใช้บ่อย จัดให้อยู่ในระยะคลิกเดียว</p>
+            </div>
+            <Link className="text-link" href="/tools">ดูทั้งหมด {tools.length} เครื่องมือ <span>↗</span></Link>
+          </div>
+
+          <div className="tools-grid featured-grid premium-grid">
+            {featuredTools.slice(0, 8).map((tool) => <ToolCard key={tool.slug} tool={tool} featured />)}
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal>
+        <section className="gold-showcase">
+          <div className="showcase-glow" aria-hidden="true"></div>
+          <div className="container gold-banner-inner">
+            <div className="showcase-copy">
+              <span className="eyebrow dark">PROMPTPAY · PRIVATE BY DESIGN</span>
+              <h2>สร้าง QR รับเงิน<br />ให้ดูดีในไม่กี่วินาที</h2>
+              <p>ระบุพร้อมเพย์และยอดเงิน ระบบสร้าง QR บนอุปกรณ์ของคุณ พร้อมดาวน์โหลดเป็น PNG ได้ทันที</p>
+              <div className="showcase-actions">
+                <Link className="dark-btn" href="/tools/promptpay-qr">สร้าง QR รับเงิน <span>↗</span></Link>
+                <span className="privacy-chip">◉ ไม่บันทึกข้อมูล</span>
+              </div>
+            </div>
+
+            <div className="payment-visual" aria-hidden="true">
+              <div className="payment-orbit orbit-a"></div>
+              <div className="payment-orbit orbit-b"></div>
+              <div className="phone-card">
+                <div className="phone-top"><span>พร้อมเพย์</span><b>•••</b></div>
+                <div className="mock-qr">
+                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                </div>
+                <strong>฿ 1,250.00</strong>
+                <small>พร้อมรับเงินทันที</small>
+                <div className="scan-line"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal>
+        <section className="container section categories-section">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">EXPLORE BY CATEGORY</span>
+              <h2>เริ่มจากเรื่องที่คุณกำลังทำ</h2>
+              <p>หมวดหมู่ชัดเจน หาเครื่องมือได้เร็วโดยไม่ต้องไล่ดูทีละรายการ</p>
+            </div>
+            <Link className="text-link" href="/categories">ทุกหมวดหมู่ <span>↗</span></Link>
+          </div>
+
+          <div className="category-grid">
+            {categories.map((category) => {
+              const count = tools.filter((tool) => tool.categorySlug === category.slug).length;
+              return (
+                <Link className="category-card" key={category.slug} href={"/categories/" + category.slug}>
+                  <span className="category-icon">{category.icon}</span>
+                  <div><h3>{category.name}</h3><p>{category.description}</p></div>
+                  <b>{String(count).padStart(2, "0")}</b>
+                  <span className="card-arrow">↗</span>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal>
+        <section className="container experience-section">
+          <div className="experience-card">
+            <span className="experience-number">01</span><div className="experience-icon">⚡</div>
+            <h3>เร็วและตรงประเด็น</h3><p>เปิดเครื่องมือ กรอกข้อมูล เห็นผลลัพธ์ทันที ไม่มีขั้นตอนที่ไม่จำเป็น</p>
+          </div>
+          <div className="experience-card">
+            <span className="experience-number">02</span><div className="experience-icon">◇</div>
+            <h3>ข้อมูลอยู่กับคุณ</h3><p>เครื่องมือที่รองรับประมวลผลในเบราว์เซอร์ ลดการส่งข้อมูลออกจากอุปกรณ์</p>
+          </div>
+          <div className="experience-card">
+            <span className="experience-number">03</span><div className="experience-icon">◎</div>
+            <h3>ออกแบบเพื่อมือถือ</h3><p>ปุ่ม ฟอร์ม และผลลัพธ์ถูกจัดให้แตะง่าย อ่านง่าย และลื่นบนหน้าจอเล็ก</p>
+          </div>
+        </section>
+      </Reveal>
+
+      <section className="trust-section">
+        <div className="container trust-grid">
+          <div><strong>{tools.length}</strong><span>เครื่องมือในแคตตาล็อก</span></div>
+          <div><strong>{ready}</strong><span>พร้อมใช้ใน V1.1</span></div>
+          <div><strong>0฿</strong><span>ใช้ฟรี ไม่ต้องสมัคร</span></div>
+          <div><strong>TH</strong><span>ออกแบบเพื่อผู้ใช้ภาษาไทย</span></div>
+        </div>
+      </section>
+    </>
+  );
+}
