@@ -1,1 +1,103 @@
-import type {Metadata} from "next";import Link from "next/link";export const metadata:Metadata={title:"เกี่ยวกับครบเครื่อง",description:"แนวคิดและหลักการออกแบบเว็บไซต์ครบเครื่อง"};export default function AboutPage(){return <section className="container page-section about-page"><div className="page-hero"><span className="eyebrow">ABOUT KROBKRUENG</span><h1>เครื่องมือเล็ก ๆ<br/>ที่ช่วยให้เรื่องประจำวันง่ายขึ้น</h1><p>ครบเครื่อง V1 เป็นเว็บรวมเครื่องมือภาษาไทยที่เน้นความเร็ว ความชัดเจน การใช้งานบนมือถือ และความเป็นส่วนตัว</p></div><div className="about-grid"><article><span>01</span><h2>หาเครื่องมือง่าย</h2><p>ค้นหาจากชื่อ คำอธิบาย หรือเลือกหมวดหมู่ได้จากหน้าเดียว</p></article><article><span>02</span><h2>ใช้งานบนมือถือก่อน</h2><p>ฟอร์ม ปุ่ม และผลลัพธ์ออกแบบให้กดง่ายและอ่านง่ายบนหน้าจอเล็ก</p></article><article><span>03</span><h2>ประมวลผลในเครื่อง</h2><p>เครื่องมือที่ทำได้จะประมวลผลในเบราว์เซอร์ เพื่อลดการส่งข้อมูลออกจากอุปกรณ์</p></article><article><span>04</span><h2>ต่อยอดได้</h2><p>โครงสร้าง Next.js แยกข้อมูล เครื่องมือ และหน้าเว็บอย่างชัดเจน เพื่อเพิ่มฟีเจอร์ใน V2 ได้สะดวก</p></article></div><div className="about-cta"><h2>เริ่มใช้งานได้เลย</h2><Link className="primary-btn inline" href="/tools">เปิดเครื่องมือทั้งหมด →</Link></div></section>}
+import type { Metadata } from "next";
+import Link from "next/link";
+import styles from "./about.module.css";
+
+export const metadata: Metadata = {
+  title: "เกี่ยวกับเรา — ครบเครื่อง",
+  description: "รู้จักครบเครื่อง Krobkrueng เว็บไซต์เครื่องมือออนไลน์ฟรีสำหรับชีวิตประจำวัน",
+  alternates: { canonical: "/about" },
+};
+
+export default function AboutPage() {
+  return (
+    <main className={styles.page}>
+      <div className={styles.shell}>
+        <Link className={styles.back} href="/" aria-label="กลับหน้าหลัก">
+          <span aria-hidden="true">←</span>
+          <span>กลับหน้าหลัก</span>
+        </Link>
+
+        <section className={styles.hero}>
+          <div className={styles.brand}>
+            <img
+              src="/krobkrueng-logo.webp"
+              alt="ครบเครื่อง Krobkrueng"
+              width={76}
+              height={76}
+            />
+            <div>
+              <span className={styles.eyebrow}>เกี่ยวกับเรา</span>
+              <h1>ครบเครื่อง</h1>
+              <small>Krobkrueng</small>
+            </div>
+          </div>
+
+          <p className={styles.lead}>
+            เว็บไซต์รวมเครื่องมือออนไลน์ฟรีที่ช่วยให้เรื่องเล็ก ๆ ในชีวิตประจำวัน
+            ทำได้ง่าย เร็ว และสะดวกขึ้น โดยออกแบบให้ใช้งานง่ายบนมือถือเป็นหลัก
+          </p>
+
+          <div className={styles.trust}>
+            <span>ใช้ฟรี</span>
+            <span>ไม่ต้องสมัคร</span>
+            <span>Mobile-first</span>
+          </div>
+        </section>
+
+        <div className={styles.grid}>
+          <article>
+            <span className={styles.number}>01</span>
+            <div>
+              <h2>เราทำอะไร</h2>
+              <p>
+                ครบเครื่องรวบรวมเครื่องมือสำหรับการคำนวณ การเงิน เวลา อาหาร
+                การซื้อของ และงานประจำวัน เพื่อช่วยลดขั้นตอนที่ยุ่งยากให้เหลือการใช้งานที่ตรงไปตรงมา
+              </p>
+            </div>
+          </article>
+
+          <article>
+            <span className={styles.number}>02</span>
+            <div>
+              <h2>แนวคิดของเว็บไซต์</h2>
+              <p>
+                เราเน้นประสบการณ์ที่สะอาด อ่านง่าย และเปิดแล้วใช้งานได้ทันที
+                โดยลดองค์ประกอบที่ไม่จำเป็นและให้ความสำคัญกับความเร็วบนอุปกรณ์พกพา
+              </p>
+            </div>
+          </article>
+
+          <article>
+            <span className={styles.number}>03</span>
+            <div>
+              <h2>ความเป็นส่วนตัว</h2>
+              <p>
+                เครื่องมือพื้นฐานใช้งานได้โดยไม่ต้องสมัครสมาชิก และการตั้งค่าบางส่วน
+                เช่น รายการโปรด ธีม และประวัติใช้งานล่าสุดจะถูกเก็บไว้ในเบราว์เซอร์ของอุปกรณ์
+              </p>
+              <Link className={styles.inlineLink} href="/privacy">
+                อ่านนโยบายความเป็นส่วนตัว →
+              </Link>
+            </div>
+          </article>
+
+          <article>
+            <span className={styles.number}>04</span>
+            <div>
+              <h2>การพัฒนาต่อไป</h2>
+              <p>
+                ครบเครื่องจะทยอยเพิ่มเครื่องมือใหม่และพัฒนาฟังก์ชันเดิม
+                โดยรักษาหลักการเดิมคือใช้งานง่าย เร็ว และเหมาะกับชีวิตประจำวัน
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <footer className={styles.footer}>
+          <span>ครบเครื่อง · เครื่องมือฟรีสำหรับชีวิตประจำวัน</span>
+          <Link href="/">กลับไปใช้เครื่องมือ</Link>
+        </footer>
+      </div>
+    </main>
+  );
+}
