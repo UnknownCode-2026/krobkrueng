@@ -399,7 +399,7 @@ export default function HomePage() {
             <a href="#about">เกี่ยวกับ</a>
             <a href="/privacy">ความเป็นส่วนตัว</a>
           </div>
-          <div className="privacy-note">ข้อมูลการตั้งค่าพื้นฐานจัดเก็บในเบราว์เซอร์ของอุปกรณ์นี้ <a href="/privacy">อ่านนโยบายความเป็นส่วนตัว</a></div>
+          <div className="privacy-note">ข้อมูลจัดเก็บในเบราว์เซอร์ · <a href="/privacy">อ่านนโยบายความเป็นส่วนตัว</a></div>
           <span className="copyright">© 2026 Krobkrueng</span>
         </div>
       </footer>
