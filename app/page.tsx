@@ -1,159 +1,24 @@
-import Link from "next/link";
-import Reveal from "@/components/Reveal";
-import ToolCard from "@/components/ToolCard";
-import { categories, featuredTools, tools } from "@/data/tools";
-
 export default function HomePage() {
-  const ready = tools.filter((tool) => tool.status === "ready").length;
-
+  const previews = [
+    ["💰","วางแผนงบรายวัน","วันนี้ใช้ได้เท่าไรถึงจะพอดี"],
+    ["🛒","เทียบความคุ้มค่า","ชิ้นไหนคุ้มกว่ากัน คิดให้เร็วขึ้น"],
+    ["🍜","วันนี้กินอะไรดี","ช่วยลดเวลาคิดเรื่องมื้อถัดไป"],
+    ["⏰","ควรออกจากบ้านกี่โมง","วางแผนเวลาให้ไม่รีบเกินไป"],
+    ["👥","หารค่าใช้จ่าย","แบ่งบิลกับเพื่อนแบบเข้าใจง่าย"],
+    ["📊","แบ่งเงินเดือน","จัดสัดส่วนเงินให้เห็นภาพง่ายขึ้น"]
+  ];
   return (
     <>
-      <section className="hero">
-        <div className="hero-mesh" aria-hidden="true"></div>
-        <div className="hero-orb orb-one" aria-hidden="true"></div>
-        <div className="hero-orb orb-two" aria-hidden="true"></div>
-
-        <div className="container hero-inner">
-          <div className="hero-kicker"><span></span>KROBKRUENG V1.1 · GOLD EXPERIENCE</div>
-          <h1>เครื่องมือออนไลน์ที่<br /><em>คิดมาเพื่อชีวิตจริง</em></h1>
-          <p>คำนวณ จัดการไฟล์ สร้าง QR และแก้เรื่องจุกจิกในแต่ละวัน<br className="desktop-break" />ด้วยประสบการณ์ที่เร็ว เรียบง่าย และดูดีทุกหน้าจอ</p>
-
-          <form className="search-box hero-search" action="/tools">
-            <span className="search-orb" aria-hidden="true">⌕</span>
-            <input name="q" aria-label="ค้นหาเครื่องมือ" placeholder="วันนี้อยากให้ครบเครื่องช่วยเรื่องอะไร?" />
-            <span className="search-hint">58 tools</span>
-            <button type="submit">ค้นหา <b>→</b></button>
-          </form>
-
-          <div className="quick-links">
-            <span>ยอดนิยมตอนนี้</span>
-            <Link href="/tools/thai-income-tax">ภาษีเงินได้ <b>↗</b></Link>
-            <Link href="/tools/promptpay-qr">QR รับเงิน <b>↗</b></Link>
-            <Link href="/tools/car-loan">ผ่อนรถ <b>↗</b></Link>
-            <Link href="/tools/resize-image">ย่อรูป <b>↗</b></Link>
-          </div>
-
-          <div className="hero-proof">
-            <div><strong>{tools.length}</strong><span>เครื่องมือทั้งหมด</span></div>
-            <i></i>
-            <div><strong>{ready}</strong><span>พร้อมใช้งาน</span></div>
-            <i></i>
-            <div><strong>0฿</strong><span>ใช้ฟรี ไม่ต้องสมัคร</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section className="category-strip">
-        <div className="container chips scroll-x">
-          <Link className="chip active" href="/tools"><span>✦</span> ทั้งหมด</Link>
-          {categories.map((category) => (
-            <Link className="chip" key={category.slug} href={"/categories/" + category.slug}>
-              <span>{category.icon}</span> {category.name}
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <Reveal>
-        <section className="container section">
-          <div className="section-heading">
-            <div>
-              <span className="eyebrow">CURATED FOR YOU</span>
-              <h2>เครื่องมือที่ควรมีติดมือ</h2>
-              <p>งานที่คนไทยใช้บ่อย จัดให้อยู่ในระยะคลิกเดียว</p>
-            </div>
-            <Link className="text-link" href="/tools">ดูทั้งหมด {tools.length} เครื่องมือ <span>↗</span></Link>
-          </div>
-
-          <div className="tools-grid featured-grid premium-grid">
-            {featuredTools.slice(0, 8).map((tool) => <ToolCard key={tool.slug} tool={tool} featured />)}
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal>
-        <section className="gold-showcase">
-          <div className="showcase-glow" aria-hidden="true"></div>
-          <div className="container gold-banner-inner">
-            <div className="showcase-copy">
-              <span className="eyebrow dark">PROMPTPAY · PRIVATE BY DESIGN</span>
-              <h2>สร้าง QR รับเงิน<br />ให้ดูดีในไม่กี่วินาที</h2>
-              <p>ระบุพร้อมเพย์และยอดเงิน ระบบสร้าง QR บนอุปกรณ์ของคุณ พร้อมดาวน์โหลดเป็น PNG ได้ทันที</p>
-              <div className="showcase-actions">
-                <Link className="dark-btn" href="/tools/promptpay-qr">สร้าง QR รับเงิน <span>↗</span></Link>
-                <span className="privacy-chip">◉ ไม่บันทึกข้อมูล</span>
-              </div>
-            </div>
-
-            <div className="payment-visual" aria-hidden="true">
-              <div className="payment-orbit orbit-a"></div>
-              <div className="payment-orbit orbit-b"></div>
-              <div className="phone-card">
-                <div className="phone-top"><span>พร้อมเพย์</span><b>•••</b></div>
-                <div className="mock-qr">
-                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-                </div>
-                <strong>฿ 1,250.00</strong>
-                <small>พร้อมรับเงินทันที</small>
-                <div className="scan-line"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal>
-        <section className="container section categories-section">
-          <div className="section-heading">
-            <div>
-              <span className="eyebrow">EXPLORE BY CATEGORY</span>
-              <h2>เริ่มจากเรื่องที่คุณกำลังทำ</h2>
-              <p>หมวดหมู่ชัดเจน หาเครื่องมือได้เร็วโดยไม่ต้องไล่ดูทีละรายการ</p>
-            </div>
-            <Link className="text-link" href="/categories">ทุกหมวดหมู่ <span>↗</span></Link>
-          </div>
-
-          <div className="category-grid">
-            {categories.map((category) => {
-              const count = tools.filter((tool) => tool.categorySlug === category.slug).length;
-              return (
-                <Link className="category-card" key={category.slug} href={"/categories/" + category.slug}>
-                  <span className="category-icon">{category.icon}</span>
-                  <div><h3>{category.name}</h3><p>{category.description}</p></div>
-                  <b>{String(count).padStart(2, "0")}</b>
-                  <span className="card-arrow">↗</span>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal>
-        <section className="container experience-section">
-          <div className="experience-card">
-            <span className="experience-number">01</span><div className="experience-icon">⚡</div>
-            <h3>เร็วและตรงประเด็น</h3><p>เปิดเครื่องมือ กรอกข้อมูล เห็นผลลัพธ์ทันที ไม่มีขั้นตอนที่ไม่จำเป็น</p>
-          </div>
-          <div className="experience-card">
-            <span className="experience-number">02</span><div className="experience-icon">◇</div>
-            <h3>ข้อมูลอยู่กับคุณ</h3><p>เครื่องมือที่รองรับประมวลผลในเบราว์เซอร์ ลดการส่งข้อมูลออกจากอุปกรณ์</p>
-          </div>
-          <div className="experience-card">
-            <span className="experience-number">03</span><div className="experience-icon">◎</div>
-            <h3>ออกแบบเพื่อมือถือ</h3><p>ปุ่ม ฟอร์ม และผลลัพธ์ถูกจัดให้แตะง่าย อ่านง่าย และลื่นบนหน้าจอเล็ก</p>
-          </div>
-        </section>
-      </Reveal>
-
-      <section className="trust-section">
-        <div className="container trust-grid">
-          <div><strong>{tools.length}</strong><span>เครื่องมือในแคตตาล็อก</span></div>
-          <div><strong>{ready}</strong><span>พร้อมใช้ใน V1.1</span></div>
-          <div><strong>0฿</strong><span>ใช้ฟรี ไม่ต้องสมัคร</span></div>
-          <div><strong>TH</strong><span>ออกแบบเพื่อผู้ใช้ภาษาไทย</span></div>
-        </div>
-      </section>
+      <header className="site-header"><div className="wrap nav"><a className="brand" href="#"><span className="brand-icon">ค</span><span><b>ครบเครื่อง</b><small>Krobkrueng</small></span></a><a className="nav-cta" href="#preview">เริ่มใช้งาน</a></div></header>
+      <main>
+        <section className="hero"><div className="wrap hero-grid"><div><span className="pill">เว็บไซต์ฟรี เพื่อชีวิตประจำวันที่ง่ายขึ้น</span><h1>เรื่องยุ่ง ๆ ในชีวิต<br/><em>ให้ครบเครื่องช่วย</em></h1><p className="lead">รวมเครื่องมือเล็ก ๆ ที่ช่วยคิด คำนวณ และตัดสินใจเรื่องประจำวัน ให้คุณทำเรื่องจุกจิกได้ง่ายและเร็วขึ้น</p><div className="actions"><a className="primary" href="#preview">ลองดูเครื่องมือ</a><a className="secondary" href="#why">รู้จักครบเครื่อง</a></div><div className="mini-proof"><span>✓ ใช้ฟรี</span><span>✓ ไม่ต้องสมัคร</span><span>✓ รองรับมือถือ</span></div></div><div className="hero-demo"><div className="demo-top"><i></i><i></i><i></i><span>krobkrueng.vercel.app</span></div><div className="demo-body"><span className="tiny-pill">✨ วันนี้มีอะไรให้ช่วย?</span><h3>วันนี้อยากให้<br/>ครบเครื่องช่วยเรื่องอะไร?</h3><div className="fake-search">🔎 ลองพิมพ์ “แบ่งเงินเดือน 30,000 ใช้ได้วันละเท่าไร?”</div><div className="demo-chips"><span>💰 เรื่องเงิน</span><span>🛒 ซื้อของ</span><span>⏰ เวลา</span><span>🍜 อาหาร</span></div></div></div></div></section>
+        <section id="preview" className="search-section"><div className="wrap narrow"><span className="eyebrow">เริ่มจากเรื่องของคุณ</span><h2>วันนี้อยากให้ครบเครื่องช่วยเรื่องอะไร?</h2><p>V1 เน้นสร้างประสบการณ์หน้าหลักให้เรียบง่ายก่อน เครื่องมือจริงจะทยอยเปิดในเวอร์ชันถัดไป</p><div className="big-search"><span>🔎</span><input disabled placeholder="เช่น เดือนนี้ควรแบ่งเงินยังไงดี?"/><button disabled>เร็ว ๆ นี้</button></div></div></section>
+        <section id="why" className="section"><div className="wrap"><div className="heading"><span className="eyebrow">ทำไมต้องครบเครื่อง</span><h2>สร้างมาให้ใช้ง่าย ตั้งแต่ครั้งแรก</h2></div><div className="benefits"><article><span>●</span><h3>ใช้งานฟรี</h3><p>เครื่องมือพื้นฐานเปิดให้ใช้โดยไม่ต้องจ่ายเงิน</p></article><article><span>⚡</span><h3>ใช้งานง่าย</h3><p>เข้าใจได้ทันที ไม่ต้องเรียนรู้ระบบที่ซับซ้อน</p></article><article><span>▣</span><h3>ใช้ได้ทุกอุปกรณ์</h3><p>ออกแบบ Mobile-first ให้ใช้งานบนมือถือได้สะดวก</p></article><article><span>🌱</span><h3>เพื่อชีวิตประจำวัน</h3><p>เน้นปัญหาที่คนทั่วไปเจอจริง และช่วยลดเวลาคิด</p></article></div></div></section>
+        <section className="section soft"><div className="wrap"><div className="heading"><span className="eyebrow">ตัวอย่างเครื่องมือในอนาคต</span><h2>เรื่องเล็ก ๆ ให้เราช่วยคิด</h2><p>ตัวอย่างแนวทางของเครื่องมือที่จะทยอยเพิ่มเข้ามา</p></div><div className="preview-grid">{previews.map(([icon,title,desc])=><article className="tool-card" key={title}><span>{icon}</span><div><h3>{title}</h3><p>{desc}</p></div><b>เร็ว ๆ นี้</b></article>)}</div></div></section>
+        <section className="pain"><div className="wrap pain-grid"><div><span className="eyebrow">ถ้าเคยคิดแบบนี้ เราเข้าใจ</span><h2>ปัญหาเล็ก ๆ<br/>ที่เจอได้ทุกวัน</h2></div><div className="questions"><p>“เงินเดือนเท่านี้ วันนี้ใช้ได้อีกเท่าไร?”</p><p>“สองแพ็กนี้ อันไหนคุ้มกว่ากัน?”</p><p>“ออกจากบ้านกี่โมงถึงจะไม่สาย?”</p><p>“มื้อนี้กินอะไรดี คิดไม่ออกแล้ว”</p><strong>เรื่องพวกนี้ ให้ครบเครื่องช่วย →</strong></div></div></section>
+        <section className="section"><div className="wrap"><div className="heading center"><span className="eyebrow">COMING SOON</span><h2>กำลังเตรียมเครื่องมือให้ครบขึ้น</h2></div><div className="categories"><span>💰 การเงิน</span><span>🛒 ซื้อของ</span><span>⏰ เวลา</span><span>🍜 อาหาร</span><span>🏡 ชีวิตประจำวัน</span></div><div className="cta"><h2>ชีวิตประจำวัน ไม่จำเป็นต้องยุ่งยาก</h2><p>ครบเครื่องกำลังสร้างเครื่องมือที่เรียบง่าย ใช้ฟรี และช่วยคุณได้จริง</p><a href="#preview">เริ่มจากหน้าหลักของครบเครื่อง</a></div></div></section>
+      </main>
+      <footer><div className="wrap footer"><div><b>ครบเครื่อง</b><p>เครื่องมือออนไลน์ฟรี เพื่อชีวิตประจำวันที่สะดวกขึ้น</p></div><span>© 2026 Krobkrueng · V1</span></div></footer>
     </>
   );
 }
