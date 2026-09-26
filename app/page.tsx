@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { CategoryIcon, ToolIcon, UiIcon } from "../components/KrobkruengIcons";
 
 type ToolItem = {
   id: string;
@@ -33,32 +34,6 @@ const categories = [
   { icon: "bag", name: "ซื้อของ" },
 ];
 
-function Icon({ name, size = 24 }: { name: string; size?: number }) {
-  const common = { width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, "aria-hidden": true };
-  switch (name) {
-    case "split": return <svg {...common}><path d="M7 5v5.5a2 2 0 0 0 2 2h6"/><path d="m12 9 3.5 3.5L12 16"/><circle cx="6.5" cy="4.5" r="2"/><circle cx="17.5" cy="12.5" r="2"/><circle cx="6.5" cy="19.5" r="2"/><path d="M8.5 19.5h2a4 4 0 0 0 4-4"/></svg>;
-    case "tag": return <svg {...common}><path d="M4 4h6.6a2 2 0 0 1 1.4.6l7.4 7.4a2 2 0 0 1 0 2.8l-4.6 4.6a2 2 0 0 1-2.8 0L4.6 12A2 2 0 0 1 4 10.6Z"/><circle cx="8" cy="8" r="1.4"/><path d="m10 16 5-5"/></svg>;
-    case "bowl": return <svg {...common}><path d="M4 11h16c0 5-3.2 8-8 8s-8-3-8-8Z"/><path d="M7 19h10"/><path d="M8 8c0-1.3 1-1.7 1-3"/><path d="M12 8c0-1.3 1-1.7 1-3"/><path d="M16 8c0-1.3 1-1.7 1-3"/></svg>;
-    case "clock": return <svg {...common}><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.2 2"/><path d="M12 3v1.4"/></svg>;
-    case "calendar": return <svg {...common}><rect x="4" y="5.5" width="16" height="14" rx="2.5"/><path d="M8 3.5v4M16 3.5v4M4 9.5h16"/><path d="M8 13h3M8 16h6"/></svg>;
-    case "wallet": return <svg {...common}><path d="M5 6.5A2.5 2.5 0 0 1 7.5 4H18a2 2 0 0 1 2 2v12H7a3 3 0 0 1-3-3V7.5A1.5 1.5 0 0 1 5.5 6H18"/><path d="M20 10h-4a2 2 0 0 0 0 4h4"/><circle cx="16" cy="12" r=".7" fill="currentColor" stroke="none"/></svg>;
-    case "scale": return <svg {...common}><path d="M12 4v16M7 20h10M6 6h12"/><path d="m6 6-3 5h6L6 6Zm12 0-3 5h6l-3-5Z"/><path d="M3 11c0 1.7 1.2 3 3 3s3-1.3 3-3M15 11c0 1.7 1.2 3 3 3s3-1.3 3-3"/></svg>;
-    case "percent": return <svg {...common}><circle cx="8" cy="8" r="2.3"/><circle cx="16" cy="16" r="2.3"/><path d="M17.5 6.5 6.5 17.5"/></svg>;
-    case "grid": return <svg {...common}><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg>;
-    case "bag": return <svg {...common}><path d="M5.5 8.5h13l1 11h-15l1-11Z"/><path d="M9 9V7a3 3 0 0 1 6 0v2"/></svg>;
-    case "search": return <svg {...common}><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 4.5 4.5"/></svg>;
-    case "heart": return <svg {...common}><path d="M20 8.4c0 5-8 10.1-8 10.1S4 13.4 4 8.4A4.1 4.1 0 0 1 11.2 5.7L12 6.6l.8-.9A4.1 4.1 0 0 1 20 8.4Z"/></svg>;
-    case "sun": return <svg {...common}><circle cx="12" cy="12" r="3.6"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4"/></svg>;
-    case "moon": return <svg {...common}><path d="M19 15.5A8 8 0 0 1 8.5 5a8.2 8.2 0 1 0 10.5 10.5Z"/></svg>;
-    case "home": return <svg {...common}><path d="m4 10 8-6 8 6v9a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1Z"/></svg>;
-    case "info": return <svg {...common}><circle cx="12" cy="12" r="9"/><path d="M12 10v6M12 7h.01"/></svg>;
-    case "chevron-left": return <svg {...common}><path d="m14.5 6-6 6 6 6"/></svg>;
-    case "chevron-right": return <svg {...common}><path d="m9.5 6 6 6-6 6"/></svg>;
-    case "arrow": return <svg {...common}><path d="M5 12h14M14 7l5 5-5 5"/></svg>;
-    default: return <svg {...common}><circle cx="12" cy="12" r="8"/></svg>;
-  }
-}
-
 function Logo({ className = "" }: { className?: string }) {
   return <img className={className} src="/krobkrueng-logo.webp" alt="ครบเครื่อง Krobkrueng" />;
 }
@@ -80,7 +55,7 @@ function ToolCard({
     <article className={`tool-card ${compact ? "compact" : ""}`}>
       <button className="card-main" type="button" onClick={onOpen} aria-label={`เปิด ${tool.title}`}>
         <div className="tool-top">
-          <div className="tool-icon"><Icon name={tool.icon} size={22} /></div>
+          <div className="tool-icon"><ToolIcon name={tool.icon} size={56} /></div>
           <div className="tool-badges">
             {tool.popular && <span>ยอดนิยม</span>}
             {tool.isNew && <span className="new-badge">ใหม่</span>}
@@ -91,7 +66,7 @@ function ToolCard({
           <h3>{tool.title}</h3>
           <p>{tool.desc}</p>
         </div>
-        <span className="tool-arrow"><Icon name="arrow" size={18} /></span>
+        <span className="tool-arrow"><UiIcon name="arrow" size={18} /></span>
       </button>
       <button
         className={`favorite-btn ${favorite ? "is-favorite" : ""}`}
@@ -99,7 +74,7 @@ function ToolCard({
         onClick={onFavorite}
         aria-label={favorite ? `นำ ${tool.title} ออกจากรายการโปรด` : `เพิ่ม ${tool.title} ในรายการโปรด`}
       >
-        <Icon name="heart" size={18} />
+        <UiIcon name="heart" size={18} />
       </button>
     </article>
   );
@@ -212,7 +187,7 @@ export default function HomePage() {
           </nav>
 
           <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label="เปลี่ยนธีม">
-            <Icon name={theme === "light" ? "moon" : "sun"} size={19} />
+            <UiIcon name={theme === "light" ? "moon" : "sun"} size={19} />
           </button>
         </div>
       </header>
@@ -229,7 +204,7 @@ export default function HomePage() {
 
             <div className="search-wrap">
               <div className={`search-box ${searchFocused ? "is-focus" : ""}`} role="search">
-                <span className="search-icon"><Icon name="search" size={22} /></span>
+                <span className="search-icon"><UiIcon name="search" size={22} /></span>
                 <input
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
@@ -246,9 +221,9 @@ export default function HomePage() {
                 <div className="search-suggestions">
                   {suggestions.length > 0 ? suggestions.map((tool) => (
                     <button type="button" key={tool.id} onMouseDown={() => applySearch(tool.title)}>
-                      <span className="suggestion-icon"><Icon name={tool.icon} size={18} /></span>
+                      <span className="suggestion-icon"><ToolIcon name={tool.icon} size={34} /></span>
                       <span><b>{tool.title}</b><small>{tool.category} · {tool.desc}</small></span>
-                      <Icon name="arrow" size={16} />
+                      <UiIcon name="arrow" size={16} />
                     </button>
                   )) : (
                     <div className="suggestion-empty">ไม่พบเครื่องมือที่ตรงกับคำค้น</div>
@@ -274,8 +249,8 @@ export default function HomePage() {
                 <h2>หมวดหมู่</h2>
               </div>
               <div className="slider-controls" aria-label="เลื่อนหมวดหมู่">
-                <button type="button" onClick={() => slideCategories(-1)} aria-label="เลื่อนไปทางซ้าย"><Icon name="chevron-left" size={18} /></button>
-                <button type="button" onClick={() => slideCategories(1)} aria-label="เลื่อนไปทางขวา"><Icon name="chevron-right" size={18} /></button>
+                <button type="button" onClick={() => slideCategories(-1)} aria-label="เลื่อนไปทางซ้าย"><UiIcon name="chevron-left" size={18} /></button>
+                <button type="button" onClick={() => slideCategories(1)} aria-label="เลื่อนไปทางขวา"><UiIcon name="chevron-right" size={18} /></button>
               </div>
             </div>
 
@@ -287,7 +262,7 @@ export default function HomePage() {
                   onClick={() => selectCategory(item.name)}
                   key={item.name}
                 >
-                  <span><Icon name={item.icon} size={19} /></span>
+                  <span><CategoryIcon name={item.icon} size={32} /></span>
                   <b>{item.name}</b>
                 </button>
               ))}
@@ -347,7 +322,7 @@ export default function HomePage() {
                   </div>
                 ) : (
                   <div className="empty-state">
-                    <span><Icon name="search" size={26} /></span>
+                    <span><UiIcon name="search" size={26} /></span>
                     <h3>ยังไม่พบเครื่องมือนี้</h3>
                     <p>ลองใช้คำอื่น หรือกลับไปดูเครื่องมือทั้งหมด</p>
                     <button type="button" onClick={resetTools}>ดูเครื่องมือทั้งหมด</button>
@@ -430,10 +405,10 @@ export default function HomePage() {
       </footer>
 
       <nav className="mobile-nav" aria-label="เมนูมือถือ">
-        <a className="active" href="#top"><Icon name="home" size={20} /><b>หน้าหลัก</b><i /></a>
-        <a href="#tools"><Icon name="grid" size={20} /><b>เครื่องมือ</b><i /></a>
-        <a href="#categories"><Icon name="bag" size={20} /><b>หมวดหมู่</b><i /></a>
-        <a href="#about"><Icon name="info" size={20} /><b>เกี่ยวกับ</b><i /></a>
+        <a className="active" href="#top"><UiIcon name="home" size={20} /><b>หน้าหลัก</b><i /></a>
+        <a href="#tools"><UiIcon name="grid" size={20} /><b>เครื่องมือ</b><i /></a>
+        <a href="#categories"><UiIcon name="bag" size={20} /><b>หมวดหมู่</b><i /></a>
+        <a href="#about"><UiIcon name="info" size={20} /><b>เกี่ยวกับ</b><i /></a>
       </nav>
 
       {toast && <div className="toast" role="status">{toast}</div>}
