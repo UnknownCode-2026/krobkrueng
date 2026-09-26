@@ -1,0 +1,111 @@
+.page{min-height:100vh;background:var(--surface-2);color:var(--ink)}
+.topbar{position:sticky;top:0;z-index:70;border-bottom:1px solid color-mix(in srgb,var(--line) 90%,transparent);background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(14px)}
+.topbarInner{width:min(1040px,calc(100% - 32px));height:64px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{width:38px;height:38px;border-radius:11px;object-fit:cover;box-shadow:0 5px 16px rgba(11,143,79,.16)}
+.brand span{display:grid;line-height:1.04}
+.brand strong{font-size:15px}
+.brand small{margin-top:4px;color:var(--muted);font-size:9px;letter-spacing:.08em}
+.topActions{display:flex;gap:7px}
+.topActions button{width:38px;height:38px;border:1px solid var(--line);border-radius:11px;display:grid;place-items:center;background:var(--surface);color:var(--muted);cursor:pointer;transition:.16s}
+.topActions button:hover{color:var(--brand);border-color:#b8d9c4}
+.topActions .favoriteActive{color:var(--brand);background:var(--surface-3);border-color:#afd7bd}
+.topActions .favoriteActive svg{fill:currentColor}
+.shell{width:min(1040px,calc(100% - 32px));margin:0 auto;padding:28px 0 54px}
+.breadcrumb{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:22px;color:var(--muted);font-size:11px}
+.breadcrumb a:hover{color:var(--brand)}
+.breadcrumb b{color:var(--ink)}
+.toolHero{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;padding:28px;border:1px solid var(--line);border-radius:24px;background:var(--surface);box-shadow:var(--shadow-sm)}
+.heroIcon{width:92px;height:92px;border-radius:24px;display:grid;place-items:center;background:linear-gradient(145deg,#fbfffc,#edf8f1);border:1px solid var(--line)}
+.heroIcon svg{filter:drop-shadow(0 7px 7px rgba(5,71,45,.16))}
+:global(:root[data-theme="dark"]) .heroIcon{background:linear-gradient(145deg,#183326,#12281e);border-color:#315444}
+.heroCopy{min-width:0}
+.category{display:inline-flex;padding:5px 8px;border-radius:999px;background:var(--surface-3);color:var(--brand);font-size:10px;font-weight:900}
+.heroCopy h1{margin:8px 0 7px;font-size:clamp(32px,5vw,48px);line-height:1.05;letter-spacing:-.04em}
+.heroCopy p{margin:0;max-width:690px;color:var(--muted);font-size:13px;line-height:1.7}
+.trustRow{display:flex;gap:7px;flex-wrap:wrap;margin-top:15px}
+.trustRow span{padding:6px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface-2);color:var(--muted);font-size:9px;font-weight:800}
+.workspace{margin-top:14px}
+.workspaceGrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:12px}
+.formCard,.resultCard{min-height:350px;border:1px solid var(--line);border-radius:21px;background:var(--surface);padding:22px}
+.cardHeading{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:18px}
+.cardHeading span{font-size:16px;font-weight:900}
+.cardHeading small{color:var(--muted);font-size:9px}
+.fields{display:grid;gap:13px}
+.field{display:grid;gap:7px}
+.field>span{font-size:11px;font-weight:800}
+.field input{width:100%;height:49px;border:1px solid var(--line);border-radius:13px;padding:0 13px;background:var(--surface-2);color:var(--ink);outline:none;font-size:15px;transition:.16s}
+.field input:focus{border-color:color-mix(in srgb,var(--brand) 55%,var(--line));box-shadow:0 0 0 4px rgba(11,143,79,.08);background:var(--surface)}
+.inputWrap{display:grid;grid-template-columns:1fr auto;align-items:center;border:1px solid var(--line);border-radius:13px;background:var(--surface-2);overflow:hidden;transition:.16s}
+.inputWrap:focus-within{border-color:color-mix(in srgb,var(--brand) 55%,var(--line));box-shadow:0 0 0 4px rgba(11,143,79,.08);background:var(--surface)}
+.inputWrap input{border:0;border-radius:0;background:transparent;box-shadow:none}
+.inputWrap input:focus{border:0;box-shadow:none;background:transparent}
+.inputWrap b{padding:0 13px;color:var(--muted);font-size:11px}
+.actions{display:flex;gap:8px;margin-top:18px}
+.actions button{min-height:42px;border-radius:12px;padding:0 14px;font-size:11px;font-weight:900;cursor:pointer;transition:.16s}
+.secondaryButton{border:1px solid var(--line);background:var(--surface);color:var(--muted)}
+.secondaryButton:hover{color:var(--brand);border-color:#b8d9c4}
+.primaryButton{border:0;background:var(--brand);color:#fff;flex:1}
+.primaryButton:hover{background:var(--brand-dark)}
+.primaryButton:disabled{opacity:.45;cursor:not-allowed}
+.resultCard{display:flex;flex-direction:column}
+.resultEyebrow{color:var(--brand);font-size:10px;font-weight:900}
+.placeholder{margin:auto;text-align:center;color:var(--muted)}
+.placeholder svg{display:block;margin:0 auto 10px;filter:drop-shadow(0 6px 6px rgba(5,71,45,.13))}
+.placeholder h3{margin:0;color:var(--ink);font-size:15px}
+.placeholder p{margin:5px 0 0;font-size:10px}
+.resultContent{margin:auto 0}
+.resultContent>small{display:block;color:var(--muted);font-size:10px}
+.resultContent>strong{display:block;margin:5px 0 18px;color:var(--brand);font-size:clamp(34px,5vw,50px);line-height:1.05;letter-spacing:-.035em}
+.resultStats{display:grid;gap:8px}
+.resultStats>div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-top:1px solid var(--line)}
+.resultStats span{color:var(--muted);font-size:10px}
+.resultStats b{text-align:right;font-size:11px}
+.summary{margin:0;padding:12px;border-radius:13px;background:var(--surface-3);color:var(--muted);font-size:11px;line-height:1.65}
+.errorBox{margin:auto 0;padding:14px;border:1px solid #f1c5c5;border-radius:13px;background:#fff6f6;color:#a33b3b;font-size:11px;font-weight:800}
+:global(:root[data-theme="dark"]) .errorBox{border-color:#6b3d3d;background:#2a1919;color:#f1a7a7}
+.segmented{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:15px;padding:5px;border:1px solid var(--line);border-radius:13px;background:var(--surface-2)}
+.segmented button{min-height:36px;border:0;border-radius:9px;background:transparent;color:var(--muted);font-size:9.5px;font-weight:850;cursor:pointer}
+.segmented button.active{background:var(--surface);color:var(--brand);box-shadow:var(--shadow-sm)}
+.related{margin-top:38px}
+.sectionHead>span{display:block;color:var(--brand);font-size:10px;font-weight:900}
+.sectionHead h2{margin:4px 0 14px;font-size:25px;letter-spacing:-.025em}
+.relatedGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.relatedCard{display:flex;align-items:center;gap:12px;padding:15px;border:1px solid var(--line);border-radius:17px;background:var(--surface);transition:.16s}
+.relatedCard:hover{transform:translateY(-2px);border-color:#b8d9c4;box-shadow:var(--shadow-sm)}
+.relatedCard svg{flex:0 0 auto;filter:drop-shadow(0 4px 4px rgba(5,71,45,.13))}
+.relatedCard div{display:grid}
+.relatedCard strong{font-size:12px}
+.relatedCard small{margin-top:3px;color:var(--brand);font-size:9px;font-weight:800}
+.footer{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:38px;padding:22px 2px 0;border-top:1px solid var(--line);color:var(--muted);font-size:9.5px}
+.footer div{display:flex;gap:14px}
+.footer a:hover{color:var(--brand)}
+@media(max-width:760px){
+  .topbarInner,.shell{width:calc(100% - 26px)}
+  .topbarInner{height:60px}
+  .shell{padding-top:20px}
+  .toolHero{grid-template-columns:64px 1fr;gap:14px;padding:20px;border-radius:20px}
+  .heroIcon{width:64px;height:64px;border-radius:18px}
+  .heroIcon svg{width:58px;height:58px}
+  .heroCopy h1{font-size:29px}
+  .heroCopy p{font-size:11px}
+  .trustRow{grid-column:1/-1}
+  .workspaceGrid{grid-template-columns:1fr}
+  .formCard,.resultCard{min-height:auto;padding:18px;border-radius:18px}
+  .resultCard{min-height:260px}
+  .segmented{grid-template-columns:1fr}
+  .segmented button{min-height:34px}
+  .related{margin-top:30px}
+  .relatedGrid{grid-template-columns:1fr}
+  .footer{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:390px){
+  .toolHero{grid-template-columns:1fr}
+  .heroIcon{width:60px;height:60px}
+  .heroCopy h1{font-size:27px}
+  .actions{flex-direction:column}
+  .primaryButton{flex:initial}
+}
+@media(prefers-reduced-motion:reduce){
+  .topActions button,.relatedCard,.field input,.inputWrap,.actions button{transition:none!important}
+}
