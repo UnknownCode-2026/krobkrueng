@@ -2,26 +2,44 @@
 
 เว็บไซต์เครื่องมือออนไลน์ฟรีสำหรับช่วยเรื่องเล็ก ๆ ในชีวิตประจำวัน
 
-## V1.5 — Custom Icon & Visual System
+## V1.6 — Tool Engine & First Working Tools
 
-V1.5 อัปเกรดงานภาพของทั้งเว็บไซต์โดยคง Layout และ UX Foundation จาก V1.4 เอาไว้ เน้นให้ Icon ดูมีมิติ เป็นวัตถุจริงมากขึ้น และมีเอกลักษณ์ของแบรนด์ครบเครื่อง
+V1.6 เริ่มเปลี่ยนครบเครื่องจากเว็บไซต์รวมรายการเครื่องมือให้เป็นเว็บที่เครื่องมือหลักกดเข้าไปใช้งานได้จริง โดยคง Design Foundation จาก V1.4 และ Custom Icon System จาก V1.5
 
-- เพิ่ม Krobkrueng Custom Icon System แยกเป็น Tool Icon / Category Icon / UI Icon
-- Tool Icons เปลี่ยนจากเส้น SVG ธรรมดาเป็น Soft 3D SVG แบบวัตถุจริงมากขึ้น
-- ออกแบบ Icon เฉพาะสำหรับ หารค่าใช้จ่าย, ส่วนลด, อาหาร, เวลา, นับวัน, เงินเดือน, ความคุ้มค่า และเปอร์เซ็นต์
-- ใช้ Brand Green, Deep Green, Lime, Cream และสีเสริมในสัดส่วนเดียวกันทั้งชุด
-- เพิ่ม Highlight, Layer, Shadow และ Depth โดยไม่ใช้ Emoji
-- Category Slider ใช้ Dimensional Icon แบบย่อ
-- Search Suggestions ใช้ Icon จริงของแต่ละเครื่องมือ
-- Navigation / Search / Favorite / Arrow ยังใช้ Custom Vector Line เพื่อให้ UI อ่านง่าย
-- Tool Card ปรับพื้นที่ Icon ให้เด่นขึ้นโดยไม่รื้อ Layout
-- เพิ่ม Hover lift และ Favorite micro-animation
-- รองรับ Light / Dark Mode สำหรับ Icon System
-- Mobile ปรับ Icon scale และ spacing ให้เหมาะกับจอเล็ก
-- แยก Icon Component ไปไว้ที่ `components/KrobkruengIcons.tsx` เพื่อรองรับการเพิ่มเครื่องมือใหม่ในอนาคต
-- คง Search V2, Search Suggestions, Category Filter, Favorites, Recent Tools และ Local Storage
-- ไม่แสดงเลขเวอร์ชันบนหน้าเว็บไซต์สาธารณะ
+- เพิ่ม Tool Engine สำหรับหน้าเครื่องมือแบบมาตรฐาน
+- เปิดใช้งานเครื่องมือจริงชุดแรก 3 ตัว
+  - `/tools/discount` — คำนวณส่วนลด
+  - `/tools/percentage` — คำนวณเปอร์เซ็นต์
+  - `/tools/date-count` — นับวัน
+- Tool Card บนหน้า Home ของ 3 เครื่องมือนี้กดเข้าใช้งานจริงได้
+- Search Suggestions ของเครื่องมือที่พร้อมใช้งานเปิดหน้า Tool ได้โดยตรง
+- Recent Tools บันทึกเมื่อเปิดเครื่องมือจริง
+- Favorites ใช้ Local Storage ชุดเดียวกับหน้า Home
+- Tool Page ใช้ Soft 3D Icon System จาก V1.5
+- รองรับ Light / Dark Mode
+- Mobile-first Form และ Result Card
+- Validation ภาษาไทย
+- ผลลัพธ์แบบ Real-time
+- ปุ่มล้างค่าและคัดลอกผลลัพธ์
+- Related Tools เชื่อมไปยังเครื่องมือจริงชุดเดียวกัน
+- SEO / Metadata / Canonical แยกตามแต่ละเครื่องมือ
+- ประมวลผลเครื่องมือทั้ง 3 ใน Browser ไม่ต้องใช้ Database หรือ Backend
+- แยก UI ของเครื่องมือไว้ใน `components/tools/ToolPageClient.tsx`
+- แยก CSS Module สำหรับ Tool Page เพื่อป้องกัน Style ชนกับหน้า Home
+- หน้า Home, About, Privacy และ Visual Identity เดิมยังคงไว้
 
-ยังไม่มี Login, Database, Admin, Payment หรือระบบสมาชิกใน V1.5
+### คำนวณส่วนลด
+กรอกราคาเดิมและเปอร์เซ็นต์ส่วนลด ระบบแสดงราคาหลังลด จำนวนเงินที่ประหยัด และสรุปสำหรับคัดลอกทันที พร้อมตรวจสอบเปอร์เซ็นต์ให้อยู่ในช่วง 0–100%
+
+### คำนวณเปอร์เซ็นต์
+รองรับ 3 รูปแบบ:
+- หา X% ของจำนวน
+- หาค่าว่าคิดเป็นกี่ % ของอีกจำนวน
+- หาเปอร์เซ็นต์การเพิ่มหรือลดระหว่างค่าเดิมและค่าใหม่
+
+### นับวัน
+เลือกวันที่เริ่มต้นและวันที่สิ้นสุด ระบบแสดงจำนวนวันทั้งหมด จำนวนสัปดาห์ + วันที่เหลือ และชื่อวันของวันที่สิ้นสุด พร้อม Validation กรณีวันที่สิ้นสุดอยู่ก่อนวันที่เริ่มต้น
+
+ยังไม่มี Login, Database, Admin, Payment หรือระบบสมาชิกใน V1.6
 
 Production: https://krobkrueng.netlify.app/
