@@ -60,6 +60,10 @@ function Icon({ name, size = 24 }: { name: string; size?: number }) {
   }
 }
 
+function Logo({ className = "" }: { className?: string }) {
+  return <img className={className} src="/krobkrueng-logo.webp" alt="ครบเครื่อง Krobkrueng" />;
+}
+
 function ToolCard({
   tool,
   favorite,
@@ -176,7 +180,7 @@ export default function HomePage() {
       <header className="topbar">
         <div className="shell topbar-inner">
           <a className="brand" href="#top" aria-label="ครบเครื่อง หน้าหลัก">
-            <span className="brand-mark">ค</span>
+            <Logo className="header-logo" />
             <span className="brand-copy"><strong>ครบเครื่อง</strong><small>Krobkrueng</small></span>
           </a>
           <nav className="desktop-nav" aria-label="เมนูหลัก">
@@ -193,29 +197,44 @@ export default function HomePage() {
 
       <main id="top">
         <section className="hero">
-          <div className="shell hero-inner">
-            <span className="update-pill"><i /> เครื่องมือฟรี ใช้งานง่าย</span>
-            <h1>เรื่องเล็ก ๆ ในชีวิต<br /><span>ให้ครบเครื่องช่วย</span></h1>
-            <p>รวมเครื่องมือออนไลน์ฟรีที่ช่วยคิด คำนวณ และจัดการเรื่องประจำวันให้ง่ายขึ้น</p>
+          <div className="hero-glow hero-glow-one" />
+          <div className="hero-glow hero-glow-two" />
+          <div className="shell hero-layout">
+            <div className="hero-copy">
+              <span className="update-pill"><i /> เครื่องมือฟรี ใช้งานง่าย</span>
+              <h1>เรื่องเล็ก ๆ ในชีวิต<br /><span>ให้ครบเครื่องช่วย</span></h1>
+              <p>รวมเครื่องมือออนไลน์ฟรีที่ช่วยคิด คำนวณ และจัดการเรื่องประจำวันให้ง่ายขึ้น ในดีไซน์ที่เร็ว ชัด และใช้งานสะดวกบนมือถือ</p>
 
-            <div className="search-box" role="search">
-              <span className="search-icon"><Icon name="search" size={22} /></span>
-              <input
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                onFocus={() => setCategory("ทั้งหมด")}
-                aria-label="ค้นหาเครื่องมือ"
-                placeholder="ค้นหาเครื่องมือที่ต้องการ..."
-              />
-              {query && <button className="clear-search" type="button" onClick={() => setQuery("")}>ล้าง</button>}
-              <a className="search-action" href="#popular">ค้นหา</a>
+              <div className="search-box" role="search">
+                <span className="search-icon"><Icon name="search" size={22} /></span>
+                <input
+                  value={query}
+                  onChange={(event) => setQuery(event.target.value)}
+                  onFocus={() => setCategory("ทั้งหมด")}
+                  aria-label="ค้นหาเครื่องมือ"
+                  placeholder="ค้นหาเครื่องมือที่ต้องการ..."
+                />
+                {query && <button className="clear-search" type="button" onClick={() => setQuery("")}>ล้าง</button>}
+                <a className="search-action" href="#popular">ค้นหา</a>
+              </div>
+
+              <div className="quick-tags" aria-label="คำค้นยอดนิยม">
+                <span>ลองค้นหา:</span>
+                {["หารบิล","ส่วนลด","เงินเดือน","นับวัน"].map((item) => (
+                  <button type="button" key={item} onClick={() => searchPreset(item)}>{item}</button>
+                ))}
+              </div>
             </div>
 
-            <div className="quick-tags" aria-label="คำค้นยอดนิยม">
-              <span>ลองค้นหา:</span>
-              {["หารบิล","ส่วนลด","เงินเดือน","นับวัน"].map((item) => (
-                <button type="button" key={item} onClick={() => searchPreset(item)}>{item}</button>
-              ))}
+            <div className="hero-brand" aria-label="โลโก้ครบเครื่อง">
+              <span className="orbit orbit-a" />
+              <span className="orbit orbit-b" />
+              <span className="floating-tool tool-a"><Icon name="percent" size={22} /></span>
+              <span className="floating-tool tool-b"><Icon name="calendar" size={22} /></span>
+              <span className="floating-tool tool-c"><Icon name="wallet" size={22} /></span>
+              <span className="hero-spark spark-a"><Icon name="spark" size={20} /></span>
+              <span className="hero-spark spark-b"><Icon name="spark" size={14} /></span>
+              <div className="hero-logo-shell"><Logo className="hero-logo" /></div>
             </div>
           </div>
         </section>
@@ -319,16 +338,12 @@ export default function HomePage() {
           <div className="shell daily-card">
             <div className="daily-copy">
               <span className="kicker light">ครบเครื่องในทุกวัน</span>
-              <h2>เปิดเว็บ แล้วเลือกสิ่งที่อยากให้ช่วยได้ทันที</h2>
-              <p>เราออกแบบให้ทุกอย่างสั้น ชัด และเหมาะกับการใช้งานบนมือถือ เครื่องมือพื้นฐานใช้งานได้โดยไม่ต้องสมัครสมาชิก</p>
+              <h2>ทุกเครื่องมืออยู่ในที่เดียว เปิดแล้วใช้ได้ทันที</h2>
+              <p>ดีไซน์ของครบเครื่องยึดโทนเขียวจากแบรนด์เป็นหลัก พร้อมคงความอ่านง่าย ความเร็ว และการใช้งานบนมือถือเป็นหัวใจสำคัญ</p>
               <div className="trust-row"><span>✓ ใช้ฟรี</span><span>✓ ไม่ต้องสมัคร</span><span>✓ Mobile-first</span></div>
             </div>
-            <div className="brand-visual" aria-hidden="true">
-              <div className="visual-orbit orbit-one" />
-              <div className="visual-orbit orbit-two" />
-              <span className="visual-mark">ค</span>
-              <span className="visual-spark one"><Icon name="spark" size={19} /></span>
-              <span className="visual-spark two"><Icon name="spark" size={15} /></span>
+            <div className="about-logo-wrap" aria-hidden="true">
+              <Logo className="about-logo" />
             </div>
           </div>
         </section>
@@ -337,7 +352,7 @@ export default function HomePage() {
       <footer className="footer">
         <div className="shell footer-grid">
           <div className="footer-brand">
-            <span className="brand-mark small">ค</span>
+            <Logo className="footer-logo" />
             <div><strong>ครบเครื่อง</strong><p>เครื่องมือฟรีสำหรับชีวิตประจำวัน</p></div>
           </div>
           <div className="footer-links">
