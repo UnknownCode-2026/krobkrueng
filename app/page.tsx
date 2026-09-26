@@ -183,7 +183,7 @@ export default function HomePage() {
             <a className="active" href="#top">หน้าหลัก</a>
             <a href="#tools">เครื่องมือ</a>
             <a href="#categories">หมวดหมู่</a>
-            <a href="#about">เกี่ยวกับ</a>
+            <a href="/about">เกี่ยวกับ</a>
           </nav>
 
           <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label="เปลี่ยนธีม">
@@ -371,20 +371,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="about" className="section about-section">
-          <div className="shell about-card">
-            <div className="about-brand">
-              <Logo className="about-logo" />
-              <div><strong>ครบเครื่อง</strong><small>Krobkrueng</small></div>
-            </div>
-            <div className="about-copy">
-              <span className="kicker">ทำเรื่องประจำวันให้เบาลง</span>
-              <h2>เครื่องมือเล็ก ๆ ที่เปิดแล้วใช้ได้ทันที</h2>
-              <p>ครบเครื่องออกแบบให้เร็ว อ่านง่าย และใช้งานสะดวกบนมือถือ เครื่องมือพื้นฐานใช้งานฟรีโดยไม่ต้องสมัครสมาชิก</p>
-            </div>
-            <div className="trust-row"><span>ใช้ฟรี</span><span>ไม่ต้องสมัคร</span><span>Mobile-first</span></div>
-          </div>
-        </section>
       </main>
 
       <footer className="footer">
@@ -396,7 +382,7 @@ export default function HomePage() {
           <div className="footer-links">
             <a href="#tools">เครื่องมือทั้งหมด</a>
             <a href="#categories">หมวดหมู่</a>
-            <a href="#about">เกี่ยวกับ</a>
+            <a href="/about">เกี่ยวกับ</a>
             <a href="/privacy">ความเป็นส่วนตัว</a>
           </div>
           <div className="privacy-note">ข้อมูลจัดเก็บในเบราว์เซอร์ · <a href="/privacy">อ่านนโยบายความเป็นส่วนตัว</a></div>
@@ -408,7 +394,7 @@ export default function HomePage() {
         <a className="active" href="#top"><UiIcon name="home" size={20} /><b>หน้าหลัก</b><i /></a>
         <a href="#tools"><UiIcon name="grid" size={20} /><b>เครื่องมือ</b><i /></a>
         <a href="#categories"><UiIcon name="bag" size={20} /><b>หมวดหมู่</b><i /></a>
-        <a href="#about"><UiIcon name="info" size={20} /><b>เกี่ยวกับ</b><i /></a>
+        <a href="/about"><UiIcon name="info" size={20} /><b>เกี่ยวกับ</b><i /></a>
       </nav>
 
       {toast && <div className="toast" role="status">{toast}</div>}
