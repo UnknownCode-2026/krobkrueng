@@ -12,17 +12,18 @@ type ToolItem = {
   popular?: boolean;
   isNew?: boolean;
   keywords: string[];
+  href?: string;
 };
 
 const tools: ToolItem[] = [
   { id: "split-bill", icon: "split", title: "หารค่าใช้จ่าย", desc: "แบ่งบิลกับเพื่อนให้ลงตัว", category: "การเงิน", popular: true, keywords: ["หารบิล","แชร์บิล","ค่าใช้จ่าย","เงิน"] },
-  { id: "discount", icon: "tag", title: "คำนวณส่วนลด", desc: "รู้ราคาจริงหลังลดทันที", category: "ซื้อของ", popular: true, keywords: ["ส่วนลด","ลดราคา","เปอร์เซ็นต์","ซื้อของ"] },
+  { id: "discount", icon: "tag", title: "คำนวณส่วนลด", desc: "รู้ราคาจริงหลังลดทันที", category: "ซื้อของ", popular: true, keywords: ["ส่วนลด","ลดราคา","เปอร์เซ็นต์","ซื้อของ"], href: "/tools/discount" },
   { id: "what-to-eat", icon: "bowl", title: "วันนี้กินอะไรดี", desc: "ช่วยเลือกมื้อถัดไปให้เร็วขึ้น", category: "อาหาร", popular: true, keywords: ["อาหาร","กินอะไร","สุ่มอาหาร","มื้อ"] },
   { id: "leave-time", icon: "clock", title: "ควรออกกี่โมง", desc: "ช่วยกะเวลาให้ไปถึงทัน", category: "เวลา", isNew: true, keywords: ["เวลา","ออกจากบ้าน","นัด","เดินทาง"] },
-  { id: "date-count", icon: "calendar", title: "นับวัน", desc: "หาจำนวนวันระหว่างสองวันที่", category: "เวลา", popular: true, keywords: ["นับวัน","วันที่","เวลา","ระยะห่าง"] },
+  { id: "date-count", icon: "calendar", title: "นับวัน", desc: "หาจำนวนวันระหว่างสองวันที่", category: "เวลา", popular: true, keywords: ["นับวัน","วันที่","เวลา","ระยะห่าง"], href: "/tools/date-count" },
   { id: "salary", icon: "wallet", title: "แบ่งเงินเดือน", desc: "วางสัดส่วนค่าใช้จ่ายแบบง่าย", category: "การเงิน", keywords: ["เงินเดือน","แบ่งเงิน","งบ","การเงิน"] },
   { id: "compare-value", icon: "scale", title: "เทียบความคุ้มค่า", desc: "เทียบราคาต่อหน่วยก่อนซื้อ", category: "ซื้อของ", keywords: ["คุ้มค่า","เปรียบเทียบ","ราคา","ซื้อของ"] },
-  { id: "percentage", icon: "percent", title: "คำนวณเปอร์เซ็นต์", desc: "คิดเปอร์เซ็นต์แบบไม่ต้องจำสูตร", category: "คำนวณ", isNew: true, keywords: ["เปอร์เซ็นต์","คำนวณ","ร้อยละ","%"] },
+  { id: "percentage", icon: "percent", title: "คำนวณเปอร์เซ็นต์", desc: "คิดเปอร์เซ็นต์แบบไม่ต้องจำสูตร", category: "คำนวณ", isNew: true, keywords: ["เปอร์เซ็นต์","คำนวณ","ร้อยละ","%"], href: "/tools/percentage" },
 ];
 
 const categories = [
@@ -133,7 +134,15 @@ export default function HomePage() {
   };
 
   const openTool = (tool: ToolItem) => {
-    setRecent((current) => [tool.id, ...current.filter((id) => id !== tool.id)].slice(0, 4));
+    const nextRecent = [tool.id, ...recent.filter((id) => id !== tool.id)].slice(0, 4);
+    setRecent(nextRecent);
+    localStorage.setItem("krobkrueng-recent", JSON.stringify(nextRecent));
+
+    if (tool.href) {
+      window.location.href = tool.href;
+      return;
+    }
+
     setToast(`${tool.title} กำลังเตรียมเปิดใช้งาน`);
     window.setTimeout(() => setToast(""), 1800);
   };
@@ -220,7 +229,7 @@ export default function HomePage() {
               {searchFocused && query && (
                 <div className="search-suggestions">
                   {suggestions.length > 0 ? suggestions.map((tool) => (
-                    <button type="button" key={tool.id} onMouseDown={() => applySearch(tool.title)}>
+                    <button type="button" key={tool.id} onMouseDown={() => tool.href ? openTool(tool) : applySearch(tool.title)}>
                       <span className="suggestion-icon"><ToolIcon name={tool.icon} size={34} /></span>
                       <span><b>{tool.title}</b><small>{tool.category} · {tool.desc}</small></span>
                       <UiIcon name="arrow" size={16} />
