@@ -6,7 +6,7 @@ import ToolWorkspace from "@/components/ToolWorkspace";
 import { getTool, tools } from "@/data/tools";
 
 export function generateStaticParams() {
-  return tools.filter((tool) => !["discount", "percentage"].includes(tool.slug)).map((tool) => ({ slug: tool.slug }));
+  return tools.filter((tool) => !["discount", "percentage", "split-bill"].includes(tool.slug)).map((tool) => ({ slug: tool.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
