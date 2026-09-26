@@ -371,34 +371,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="privacy" className="section privacy-section">
-          <div className="shell privacy-card">
-            <div className="privacy-heading">
-              <span className="privacy-icon"><UiIcon name="info" size={22} /></span>
-              <div>
-                <span className="kicker">ข้อมูลของคุณ</span>
-                <h2>ความเป็นส่วนตัว</h2>
-                <p>ครบเครื่องออกแบบเครื่องมือพื้นฐานให้ใช้งานได้โดยไม่ต้องสมัครสมาชิก และลดการเก็บข้อมูลที่ไม่จำเป็น</p>
-              </div>
-            </div>
-            <div className="privacy-grid">
-              <article>
-                <strong>จัดเก็บในอุปกรณ์ของคุณ</strong>
-                <p>รายการโปรด ธีม และประวัติการใช้งานล่าสุดจะถูกบันทึกด้วย Local Storage ภายในเบราว์เซอร์ของอุปกรณ์นี้</p>
-              </article>
-              <article>
-                <strong>ไม่มีบัญชีผู้ใช้</strong>
-                <p>ขณะนี้เว็บไซต์ไม่มีระบบสมัครสมาชิกหรือเข้าสู่ระบบ จึงไม่มีการขอชื่อ อีเมล หรือรหัสผ่านสำหรับเครื่องมือพื้นฐาน</p>
-              </article>
-              <article>
-                <strong>คุณควบคุมข้อมูลได้</strong>
-                <p>ข้อมูล Local Storage สามารถลบได้จากการตั้งค่าหรือล้างข้อมูลเว็บไซต์ในเบราว์เซอร์ที่คุณใช้งาน</p>
-              </article>
-            </div>
-            <p className="privacy-footnote">หากในอนาคตมีการเพิ่มบริการที่ต้องรับหรือประมวลผลข้อมูลเพิ่มเติม นโยบายส่วนนี้จะได้รับการปรับปรุงให้สอดคล้องกับบริการนั้น</p>
-          </div>
-        </section>
-
         <section id="about" className="section about-section">
           <div className="shell about-card">
             <div className="about-brand">
@@ -425,9 +397,9 @@ export default function HomePage() {
             <a href="#tools">เครื่องมือทั้งหมด</a>
             <a href="#categories">หมวดหมู่</a>
             <a href="#about">เกี่ยวกับ</a>
-            <a href="#privacy">ความเป็นส่วนตัว</a>
+            <a href="/privacy">ความเป็นส่วนตัว</a>
           </div>
-          <div className="privacy-note">ข้อมูลการตั้งค่าพื้นฐานจัดเก็บในเบราว์เซอร์ของอุปกรณ์นี้ <a href="#privacy">อ่านเรื่องความเป็นส่วนตัว</a></div>
+          <div className="privacy-note">ข้อมูลการตั้งค่าพื้นฐานจัดเก็บในเบราว์เซอร์ของอุปกรณ์นี้ <a href="/privacy">อ่านนโยบายความเป็นส่วนตัว</a></div>
           <span className="copyright">© 2026 Krobkrueng</span>
         </div>
       </footer>
