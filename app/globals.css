@@ -278,3 +278,148 @@ linear-gradient(180deg,var(--surface) 0%,color-mix(in srgb,var(--surface-2) 92%,
 @media(prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important;animation:none!important;transition:none!important}
 }
+
+
+/* V1.5 — Krobkrueng Custom Icon System */
+.tool-icon{
+  width:62px;
+  height:62px;
+  border-radius:18px;
+  background:linear-gradient(145deg,#fbfffc,#edf8f1);
+  border:1px solid color-mix(in srgb,var(--line) 82%,transparent);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 8px 18px rgba(19,96,55,.07);
+  overflow:visible;
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.tool-icon svg{
+  overflow:visible;
+  filter:drop-shadow(0 5px 5px rgba(5,71,45,.16));
+}
+.tool-card:hover .tool-icon{
+  transform:translateY(-2px) scale(1.035);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 12px 22px rgba(19,96,55,.10);
+}
+:root[data-theme="dark"] .tool-icon{
+  background:linear-gradient(145deg,#183326,#12281e);
+  border-color:#315444;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 8px 18px rgba(0,0,0,.18);
+}
+:root[data-theme="dark"] .tool-icon svg{
+  filter:drop-shadow(0 5px 5px rgba(0,0,0,.28));
+}
+
+.suggestion-icon{
+  width:42px;
+  height:42px;
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(145deg,#fbfffc,#eef8f2);
+  border:1px solid var(--line);
+  overflow:visible;
+}
+.suggestion-icon svg{
+  overflow:visible;
+  filter:drop-shadow(0 3px 3px rgba(5,71,45,.13));
+}
+:root[data-theme="dark"] .suggestion-icon{
+  background:#173025;
+  border-color:#2b493b;
+}
+
+.category-pill{
+  min-height:54px;
+  padding:8px 13px 8px 9px;
+  gap:9px;
+}
+.category-pill>span{
+  width:36px;
+  height:36px;
+  border-radius:11px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(145deg,#fbfffc,#eef8f1);
+  border:1px solid color-mix(in srgb,var(--line) 86%,transparent);
+  transition:transform .16s ease,background .16s ease;
+}
+.category-pill>span svg{
+  overflow:visible;
+  filter:drop-shadow(0 3px 3px rgba(5,71,45,.13));
+}
+.category-pill:hover>span,
+.category-pill.active>span{
+  transform:scale(1.06);
+}
+.category-pill.active>span{
+  background:#fff;
+}
+:root[data-theme="dark"] .category-pill>span{
+  background:#173025;
+  border-color:#2d4b3e;
+}
+:root[data-theme="dark"] .category-pill.active>span{
+  background:#1c382b;
+}
+
+.favorite-btn.is-favorite{
+  animation:favorite-pop .2s ease-out;
+}
+@keyframes favorite-pop{
+  0%{transform:scale(1)}
+  55%{transform:scale(1.18)}
+  100%{transform:scale(1)}
+}
+
+.tool-top{
+  margin-bottom:15px;
+}
+.card-main{
+  padding-top:15px;
+}
+.tool-card{
+  min-height:202px;
+}
+.tool-card.compact{
+  min-height:186px;
+}
+.tool-copy small{
+  margin-top:1px;
+}
+
+@media(max-width:700px){
+  .tool-icon{
+    width:53px;
+    height:53px;
+    border-radius:16px;
+  }
+  .tool-icon svg{
+    width:48px;
+    height:48px;
+  }
+  .suggestion-icon{
+    width:40px;
+    height:40px;
+  }
+  .category-pill{
+    min-height:50px;
+    padding:7px 11px 7px 8px;
+  }
+  .category-pill>span{
+    width:34px;
+    height:34px;
+    border-radius:10px;
+  }
+  .category-pill>span svg{
+    width:29px;
+    height:29px;
+  }
+  .tool-card{
+    min-height:184px;
+  }
+  .tool-card.compact{
+    min-height:176px;
+  }
+  .tool-top{
+    margin-bottom:12px;
+  }
+}
