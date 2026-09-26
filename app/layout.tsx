@@ -4,7 +4,7 @@ import "./globals.css";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0f8f4e",
+  themeColor: "#006b32",
 };
 
 export const metadata: Metadata = {
@@ -15,6 +15,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: "/krobkrueng-logo.webp",
+    shortcut: "/krobkrueng-logo.webp",
+    apple: "/krobkrueng-logo.webp",
+  },
   openGraph: {
     title: "ครบเครื่อง",
     description: "เรื่องเล็ก ๆ ในชีวิต ให้ครบเครื่องช่วย",
@@ -22,11 +27,20 @@ export const metadata: Metadata = {
     siteName: "ครบเครื่อง",
     locale: "th_TH",
     type: "website",
+    images: [
+      {
+        url: "/krobkrueng-logo.webp",
+        width: 160,
+        height: 160,
+        alt: "โลโก้ครบเครื่อง Krobkrueng",
+      },
+    ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "ครบเครื่อง",
     description: "เครื่องมือฟรีสำหรับชีวิตประจำวัน",
+    images: ["/krobkrueng-logo.webp"],
   },
 };
 
