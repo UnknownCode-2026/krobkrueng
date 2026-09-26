@@ -8,30 +8,29 @@ type ToolItem = {
   title: string;
   desc: string;
   category: string;
-  tone: string;
   popular?: boolean;
   isNew?: boolean;
   keywords: string[];
 };
 
 const tools: ToolItem[] = [
-  { id: "split-bill", icon: "split", title: "หารค่าใช้จ่าย", desc: "แบ่งบิลกับเพื่อนให้ลงตัว", category: "การเงิน", tone: "mint", popular: true, keywords: ["หารบิล","แชร์บิล","ค่าใช้จ่าย","เงิน"] },
-  { id: "discount", icon: "tag", title: "คำนวณส่วนลด", desc: "รู้ราคาจริงหลังลดทันที", category: "ซื้อของ", tone: "blue", popular: true, keywords: ["ส่วนลด","ลดราคา","เปอร์เซ็นต์","ซื้อของ"] },
-  { id: "what-to-eat", icon: "bowl", title: "วันนี้กินอะไรดี", desc: "ช่วยเลือกมื้อถัดไปให้เร็วขึ้น", category: "อาหาร", tone: "orange", popular: true, keywords: ["อาหาร","กินอะไร","สุ่มอาหาร","มื้อ"] },
-  { id: "leave-time", icon: "clock", title: "ควรออกกี่โมง", desc: "ช่วยกะเวลาให้ไปถึงทัน", category: "เวลา", tone: "violet", isNew: true, keywords: ["เวลา","ออกจากบ้าน","นัด","เดินทาง"] },
-  { id: "date-count", icon: "calendar", title: "นับวัน", desc: "หาจำนวนวันระหว่างสองวันที่", category: "เวลา", tone: "rose", keywords: ["นับวัน","วันที่","เวลา","ระยะห่าง"] },
-  { id: "salary", icon: "wallet", title: "แบ่งเงินเดือน", desc: "วางสัดส่วนค่าใช้จ่ายแบบง่าย", category: "การเงิน", tone: "green", keywords: ["เงินเดือน","แบ่งเงิน","งบ","การเงิน"] },
-  { id: "compare-value", icon: "scale", title: "เทียบความคุ้มค่า", desc: "เทียบราคาต่อหน่วยก่อนซื้อ", category: "ซื้อของ", tone: "sky", keywords: ["คุ้มค่า","เปรียบเทียบ","ราคา","ซื้อของ"] },
-  { id: "percentage", icon: "percent", title: "คำนวณเปอร์เซ็นต์", desc: "คิดเปอร์เซ็นต์แบบไม่ต้องจำสูตร", category: "คำนวณ", tone: "yellow", isNew: true, keywords: ["เปอร์เซ็นต์","คำนวณ","ร้อยละ","%"] },
+  { id: "split-bill", icon: "split", title: "หารค่าใช้จ่าย", desc: "แบ่งบิลกับเพื่อนให้ลงตัว", category: "การเงิน", popular: true, keywords: ["หารบิล","แชร์บิล","ค่าใช้จ่าย","เงิน"] },
+  { id: "discount", icon: "tag", title: "คำนวณส่วนลด", desc: "รู้ราคาจริงหลังลดทันที", category: "ซื้อของ", popular: true, keywords: ["ส่วนลด","ลดราคา","เปอร์เซ็นต์","ซื้อของ"] },
+  { id: "what-to-eat", icon: "bowl", title: "วันนี้กินอะไรดี", desc: "ช่วยเลือกมื้อถัดไปให้เร็วขึ้น", category: "อาหาร", popular: true, keywords: ["อาหาร","กินอะไร","สุ่มอาหาร","มื้อ"] },
+  { id: "leave-time", icon: "clock", title: "ควรออกกี่โมง", desc: "ช่วยกะเวลาให้ไปถึงทัน", category: "เวลา", isNew: true, keywords: ["เวลา","ออกจากบ้าน","นัด","เดินทาง"] },
+  { id: "date-count", icon: "calendar", title: "นับวัน", desc: "หาจำนวนวันระหว่างสองวันที่", category: "เวลา", popular: true, keywords: ["นับวัน","วันที่","เวลา","ระยะห่าง"] },
+  { id: "salary", icon: "wallet", title: "แบ่งเงินเดือน", desc: "วางสัดส่วนค่าใช้จ่ายแบบง่าย", category: "การเงิน", keywords: ["เงินเดือน","แบ่งเงิน","งบ","การเงิน"] },
+  { id: "compare-value", icon: "scale", title: "เทียบความคุ้มค่า", desc: "เทียบราคาต่อหน่วยก่อนซื้อ", category: "ซื้อของ", keywords: ["คุ้มค่า","เปรียบเทียบ","ราคา","ซื้อของ"] },
+  { id: "percentage", icon: "percent", title: "คำนวณเปอร์เซ็นต์", desc: "คิดเปอร์เซ็นต์แบบไม่ต้องจำสูตร", category: "คำนวณ", isNew: true, keywords: ["เปอร์เซ็นต์","คำนวณ","ร้อยละ","%"] },
 ];
 
 const categories = [
-  { icon: "grid", name: "ทั้งหมด", tone: "all" },
-  { icon: "wallet", name: "การเงิน", tone: "mint" },
-  { icon: "percent", name: "คำนวณ", tone: "yellow" },
-  { icon: "clock", name: "เวลา", tone: "violet" },
-  { icon: "bowl", name: "อาหาร", tone: "orange" },
-  { icon: "bag", name: "ซื้อของ", tone: "blue" },
+  { icon: "grid", name: "ทั้งหมด" },
+  { icon: "wallet", name: "การเงิน" },
+  { icon: "percent", name: "คำนวณ" },
+  { icon: "clock", name: "เวลา" },
+  { icon: "bowl", name: "อาหาร" },
+  { icon: "bag", name: "ซื้อของ" },
 ];
 
 function Icon({ name, size = 24 }: { name: string; size?: number }) {
@@ -55,7 +54,7 @@ function Icon({ name, size = 24 }: { name: string; size?: number }) {
     case "info": return <svg {...common}><circle cx="12" cy="12" r="9"/><path d="M12 10v6M12 7h.01"/></svg>;
     case "chevron-left": return <svg {...common}><path d="m14.5 6-6 6 6 6"/></svg>;
     case "chevron-right": return <svg {...common}><path d="m9.5 6 6 6-6 6"/></svg>;
-    case "spark": return <svg {...common}><path d="m12 3 1.2 4.2L17 9l-3.8 1.8L12 15l-1.2-4.2L7 9l3.8-1.8L12 3Z"/><path d="m18.5 14 .6 2.1L21 17l-1.9.9-.6 2.1-.6-2.1L16 17l1.9-.9.6-2.1Z"/></svg>;
+    case "arrow": return <svg {...common}><path d="M5 12h14M14 7l5 5-5 5"/></svg>;
     default: return <svg {...common}><circle cx="12" cy="12" r="8"/></svg>;
   }
 }
@@ -80,17 +79,19 @@ function ToolCard({
   return (
     <article className={`tool-card ${compact ? "compact" : ""}`}>
       <button className="card-main" type="button" onClick={onOpen} aria-label={`เปิด ${tool.title}`}>
-        <div className={`tool-icon ${tool.tone}`}><Icon name={tool.icon} /></div>
-        <div className="tool-copy">
-          <div className="tool-meta">
-            <span>{tool.category}</span>
-            {tool.popular && <b>ยอดนิยม</b>}
-            {tool.isNew && <b className="new-badge">ใหม่</b>}
+        <div className="tool-top">
+          <div className="tool-icon"><Icon name={tool.icon} size={22} /></div>
+          <div className="tool-badges">
+            {tool.popular && <span>ยอดนิยม</span>}
+            {tool.isNew && <span className="new-badge">ใหม่</span>}
           </div>
+        </div>
+        <div className="tool-copy">
+          <small>{tool.category}</small>
           <h3>{tool.title}</h3>
           <p>{tool.desc}</p>
         </div>
-        <span className="tool-arrow">→</span>
+        <span className="tool-arrow"><Icon name="arrow" size={18} /></span>
       </button>
       <button
         className={`favorite-btn ${favorite ? "is-favorite" : ""}`}
@@ -111,6 +112,7 @@ export default function HomePage() {
   const [recent, setRecent] = useState<string[]>([]);
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [toast, setToast] = useState("");
+  const [searchFocused, setSearchFocused] = useState(false);
   const categoryRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -131,17 +133,25 @@ export default function HomePage() {
     localStorage.setItem("krobkrueng-recent", JSON.stringify(recent));
   }, [recent]);
 
+  const normalizedQuery = query.trim().toLowerCase();
+
   const filteredTools = useMemo(() => {
-    const normalized = query.trim().toLowerCase();
     return tools.filter((tool) => {
       const categoryMatch = category === "ทั้งหมด" || tool.category === category;
       const searchText = [tool.title, tool.desc, tool.category, ...tool.keywords].join(" ").toLowerCase();
-      return categoryMatch && (!normalized || searchText.includes(normalized));
+      return categoryMatch && (!normalizedQuery || searchText.includes(normalizedQuery));
     });
-  }, [query, category]);
+  }, [normalizedQuery, category]);
+
+  const suggestions = useMemo(() => {
+    if (!normalizedQuery) return [];
+    return tools.filter((tool) => [tool.title, tool.desc, tool.category, ...tool.keywords].join(" ").toLowerCase().includes(normalizedQuery)).slice(0, 5);
+  }, [normalizedQuery]);
 
   const favoriteTools = useMemo(() => tools.filter((tool) => favorites.includes(tool.id)), [favorites]);
   const recentTools = useMemo(() => recent.map((id) => tools.find((tool) => tool.id === id)).filter(Boolean) as ToolItem[], [recent]);
+  const popularTools = useMemo(() => tools.filter((tool) => tool.popular), []);
+  const newTools = useMemo(() => tools.filter((tool) => tool.isNew), []);
 
   const toggleFavorite = (id: string) => {
     setFavorites((current) => current.includes(id) ? current.filter((item) => item !== id) : [...current, id]);
@@ -155,13 +165,15 @@ export default function HomePage() {
 
   const selectCategory = (name: string) => {
     setCategory(name);
-    document.getElementById("popular")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setQuery("");
+    document.getElementById("tools")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const searchPreset = (value: string) => {
+  const applySearch = (value: string) => {
     setQuery(value);
     setCategory("ทั้งหมด");
-    document.getElementById("popular")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setSearchFocused(false);
+    window.setTimeout(() => document.getElementById("tools")?.scrollIntoView({ behavior: "smooth", block: "start" }), 40);
   };
 
   const toggleTheme = () => {
@@ -172,8 +184,16 @@ export default function HomePage() {
   };
 
   const slideCategories = (direction: number) => {
-    categoryRef.current?.scrollBy({ left: direction * 330, behavior: "smooth" });
+    categoryRef.current?.scrollBy({ left: direction * 300, behavior: "smooth" });
   };
+
+  const resetTools = () => {
+    setQuery("");
+    setCategory("ทั้งหมด");
+  };
+
+  const personalizedSections = recentTools.length > 0 || favoriteTools.length > 0;
+  const showingFiltered = normalizedQuery.length > 0 || category !== "ทั้งหมด";
 
   return (
     <>
@@ -183,12 +203,14 @@ export default function HomePage() {
             <Logo className="header-logo" />
             <span className="brand-copy"><strong>ครบเครื่อง</strong><small>Krobkrueng</small></span>
           </a>
+
           <nav className="desktop-nav" aria-label="เมนูหลัก">
             <a className="active" href="#top">หน้าหลัก</a>
-            <a href="#popular">เครื่องมือ</a>
+            <a href="#tools">เครื่องมือ</a>
             <a href="#categories">หมวดหมู่</a>
             <a href="#about">เกี่ยวกับ</a>
           </nav>
+
           <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label="เปลี่ยนธีม">
             <Icon name={theme === "light" ? "moon" : "sun"} size={19} />
           </button>
@@ -197,53 +219,58 @@ export default function HomePage() {
 
       <main id="top">
         <section className="hero">
-          <div className="hero-glow hero-glow-one" />
-          <div className="hero-glow hero-glow-two" />
-          <div className="shell hero-layout">
-            <div className="hero-copy">
-              <span className="update-pill"><i /> เครื่องมือฟรี ใช้งานง่าย</span>
-              <h1>เรื่องเล็ก ๆ ในชีวิต<br /><span>ให้ครบเครื่องช่วย</span></h1>
-              <p>รวมเครื่องมือออนไลน์ฟรีที่ช่วยคิด คำนวณ และจัดการเรื่องประจำวันให้ง่ายขึ้น ในดีไซน์ที่เร็ว ชัด และใช้งานสะดวกบนมือถือ</p>
+          <div className="shell hero-inner">
+            <div className="hero-brandline">
+              <Logo className="hero-mini-logo" />
+              <span>เครื่องมือออนไลน์ฟรีสำหรับทุกวัน</span>
+            </div>
+            <h1>เรื่องเล็ก ๆ ในชีวิต<br /><span>ให้ครบเครื่องช่วย</span></h1>
+            <p>ช่วยคิด คำนวณ และจัดการเรื่องประจำวันให้เร็วขึ้น ใช้ง่าย ฟรี และไม่ต้องสมัครสำหรับเครื่องมือพื้นฐาน</p>
 
-              <div className="search-box" role="search">
+            <div className="search-wrap">
+              <div className={`search-box ${searchFocused ? "is-focus" : ""}`} role="search">
                 <span className="search-icon"><Icon name="search" size={22} /></span>
                 <input
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
-                  onFocus={() => setCategory("ทั้งหมด")}
+                  onFocus={() => { setCategory("ทั้งหมด"); setSearchFocused(true); }}
+                  onBlur={() => window.setTimeout(() => setSearchFocused(false), 130)}
                   aria-label="ค้นหาเครื่องมือ"
-                  placeholder="ค้นหาเครื่องมือที่ต้องการ..."
+                  placeholder="ค้นหา เช่น หารบิล, ส่วนลด, นับวัน..."
                 />
                 {query && <button className="clear-search" type="button" onClick={() => setQuery("")}>ล้าง</button>}
-                <a className="search-action" href="#popular">ค้นหา</a>
+                <a className="search-action" href="#tools">ค้นหา</a>
               </div>
 
-              <div className="quick-tags" aria-label="คำค้นยอดนิยม">
-                <span>ลองค้นหา:</span>
-                {["หารบิล","ส่วนลด","เงินเดือน","นับวัน"].map((item) => (
-                  <button type="button" key={item} onClick={() => searchPreset(item)}>{item}</button>
-                ))}
-              </div>
+              {searchFocused && query && (
+                <div className="search-suggestions">
+                  {suggestions.length > 0 ? suggestions.map((tool) => (
+                    <button type="button" key={tool.id} onMouseDown={() => applySearch(tool.title)}>
+                      <span className="suggestion-icon"><Icon name={tool.icon} size={18} /></span>
+                      <span><b>{tool.title}</b><small>{tool.category} · {tool.desc}</small></span>
+                      <Icon name="arrow" size={16} />
+                    </button>
+                  )) : (
+                    <div className="suggestion-empty">ไม่พบเครื่องมือที่ตรงกับคำค้น</div>
+                  )}
+                </div>
+              )}
             </div>
 
-            <div className="hero-brand" aria-label="โลโก้ครบเครื่อง">
-              <span className="orbit orbit-a" />
-              <span className="orbit orbit-b" />
-              <span className="floating-tool tool-a"><Icon name="percent" size={22} /></span>
-              <span className="floating-tool tool-b"><Icon name="calendar" size={22} /></span>
-              <span className="floating-tool tool-c"><Icon name="wallet" size={22} /></span>
-              <span className="hero-spark spark-a"><Icon name="spark" size={20} /></span>
-              <span className="hero-spark spark-b"><Icon name="spark" size={14} /></span>
-              <div className="hero-logo-shell"><Logo className="hero-logo" /></div>
+            <div className="quick-tags" aria-label="คำค้นยอดนิยม">
+              <span>ค้นหายอดนิยม</span>
+              {["หารบิล","ส่วนลด","เงินเดือน","นับวัน"].map((item) => (
+                <button type="button" key={item} onClick={() => applySearch(item)}>{item}</button>
+              ))}
             </div>
           </div>
         </section>
 
-        <section id="categories" className="section section-tight">
+        <section id="categories" className="section category-section">
           <div className="shell">
             <div className="section-head compact-head">
               <div>
-                <span className="kicker">ปัดเพื่อเลือกเรื่องที่ต้องการ</span>
+                <span className="kicker">เลือกเรื่องที่ต้องการ</span>
                 <h2>หมวดหมู่</h2>
               </div>
               <div className="slider-controls" aria-label="เลื่อนหมวดหมู่">
@@ -252,124 +279,161 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="category-slider-wrap">
-              <div className="category-row" ref={categoryRef}>
-                {categories.map((item) => (
-                  <button
-                    className={`category-card ${item.tone} ${category === item.name ? "active" : ""}`}
-                    type="button"
-                    onClick={() => selectCategory(item.name)}
-                    key={item.name}
-                  >
-                    <span className="category-icon"><Icon name={item.icon} size={25} /></span>
-                    <span><b>{item.name}</b><small>{item.name === "ทั้งหมด" ? "ดูทุกเครื่องมือ" : `เครื่องมือ${item.name}`}</small></span>
-                    <i>→</i>
-                  </button>
-                ))}
-              </div>
+            <div className="category-row" ref={categoryRef}>
+              {categories.map((item) => (
+                <button
+                  className={`category-pill ${category === item.name ? "active" : ""}`}
+                  type="button"
+                  onClick={() => selectCategory(item.name)}
+                  key={item.name}
+                >
+                  <span><Icon name={item.icon} size={19} /></span>
+                  <b>{item.name}</b>
+                </button>
+              ))}
             </div>
           </div>
         </section>
 
-        {recentTools.length > 0 && (
+        {personalizedSections && (
           <section className="section personal-section">
-            <div className="shell">
-              <div className="section-head compact-head">
-                <div><span className="kicker">กลับมาใช้ต่อได้ทันที</span><h2>ใช้ล่าสุด</h2></div>
-              </div>
-              <div className="mini-tool-row">
-                {recentTools.map((tool) => (
-                  <ToolCard key={tool.id} tool={tool} compact favorite={favorites.includes(tool.id)} onFavorite={() => toggleFavorite(tool.id)} onOpen={() => openTool(tool)} />
-                ))}
-              </div>
+            <div className="shell personal-stack">
+              {recentTools.length > 0 && (
+                <div className="personal-block">
+                  <div className="section-head compact-head">
+                    <div><span className="kicker">กลับมาใช้ต่อได้ทันที</span><h2>ใช้ล่าสุด</h2></div>
+                  </div>
+                  <div className="mini-tool-row">
+                    {recentTools.map((tool) => (
+                      <ToolCard key={tool.id} tool={tool} compact favorite={favorites.includes(tool.id)} onFavorite={() => toggleFavorite(tool.id)} onOpen={() => openTool(tool)} />
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {favoriteTools.length > 0 && (
+                <div className="personal-block">
+                  <div className="section-head compact-head">
+                    <div><span className="kicker">เครื่องมือที่คุณเก็บไว้</span><h2>รายการโปรด</h2></div>
+                  </div>
+                  <div className="mini-tool-row">
+                    {favoriteTools.map((tool) => (
+                      <ToolCard key={tool.id} tool={tool} compact favorite onFavorite={() => toggleFavorite(tool.id)} onOpen={() => openTool(tool)} />
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </section>
         )}
 
-        {favoriteTools.length > 0 && (
-          <section className="section personal-section favorites-section">
-            <div className="shell">
-              <div className="section-head compact-head">
-                <div><span className="kicker">เครื่องมือที่คุณเก็บไว้</span><h2>รายการโปรด</h2></div>
-              </div>
-              <div className="mini-tool-row">
-                {favoriteTools.map((tool) => (
-                  <ToolCard key={tool.id} tool={tool} compact favorite onFavorite={() => toggleFavorite(tool.id)} onOpen={() => openTool(tool)} />
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        <section id="popular" className="section tools-section">
+        <section id="tools" className="section tools-section">
           <div className="shell">
-            <div className="section-head">
-              <div>
-                <span className="kicker">{category === "ทั้งหมด" ? "หยิบใช้ได้ไว ไม่ต้องหาเมนูซับซ้อน" : `กำลังดูหมวด ${category}`}</span>
-                <h2>{query ? `ผลการค้นหา “${query}”` : category === "ทั้งหมด" ? "เครื่องมือยอดนิยม" : `เครื่องมือ${category}`}</h2>
-              </div>
-              <span className="section-note">{filteredTools.length} เครื่องมือ</span>
-            </div>
+            {showingFiltered ? (
+              <>
+                <div className="section-head">
+                  <div>
+                    <span className="kicker">{normalizedQuery ? "ผลลัพธ์จากคำค้นของคุณ" : `กำลังดูหมวด ${category}`}</span>
+                    <h2>{normalizedQuery ? `ผลการค้นหา “${query}”` : `เครื่องมือ${category}`}</h2>
+                  </div>
+                  <span className="section-note">{filteredTools.length} เครื่องมือ</span>
+                </div>
 
-            {filteredTools.length > 0 ? (
-              <div className="tool-grid">
-                {filteredTools.map((tool) => (
-                  <ToolCard
-                    key={tool.id}
-                    tool={tool}
-                    favorite={favorites.includes(tool.id)}
-                    onFavorite={() => toggleFavorite(tool.id)}
-                    onOpen={() => openTool(tool)}
-                  />
-                ))}
-              </div>
+                {filteredTools.length > 0 ? (
+                  <div className="tool-grid">
+                    {filteredTools.map((tool) => (
+                      <ToolCard key={tool.id} tool={tool} favorite={favorites.includes(tool.id)} onFavorite={() => toggleFavorite(tool.id)} onOpen={() => openTool(tool)} />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="empty-state">
+                    <span><Icon name="search" size={26} /></span>
+                    <h3>ยังไม่พบเครื่องมือนี้</h3>
+                    <p>ลองใช้คำอื่น หรือกลับไปดูเครื่องมือทั้งหมด</p>
+                    <button type="button" onClick={resetTools}>ดูเครื่องมือทั้งหมด</button>
+                  </div>
+                )}
+              </>
             ) : (
-              <div className="empty-state">
-                <span><Icon name="search" size={28} /></span>
-                <h3>ยังไม่พบเครื่องมือที่ตรงกับคำค้น</h3>
-                <p>ลองใช้คำสั้นลง หรือเลือกดูหมวดหมู่อื่น</p>
-                <button type="button" onClick={() => { setQuery(""); setCategory("ทั้งหมด"); }}>แสดงเครื่องมือทั้งหมด</button>
+              <div className="tool-sections">
+                <div className="tool-section-block">
+                  <div className="section-head">
+                    <div><span className="kicker">คนหยิบใช้บ่อย</span><h2>เครื่องมือยอดนิยม</h2></div>
+                    <span className="section-note">{popularTools.length} เครื่องมือ</span>
+                  </div>
+                  <div className="tool-grid">
+                    {popularTools.map((tool) => (
+                      <ToolCard key={tool.id} tool={tool} favorite={favorites.includes(tool.id)} onFavorite={() => toggleFavorite(tool.id)} onOpen={() => openTool(tool)} />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="tool-section-block">
+                  <div className="section-head">
+                    <div><span className="kicker">มีอะไรใหม่ให้ลอง</span><h2>เพิ่มใหม่</h2></div>
+                    <span className="section-note">{newTools.length} เครื่องมือ</span>
+                  </div>
+                  <div className="tool-grid compact-grid">
+                    {newTools.map((tool) => (
+                      <ToolCard key={tool.id} tool={tool} favorite={favorites.includes(tool.id)} onFavorite={() => toggleFavorite(tool.id)} onOpen={() => openTool(tool)} />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="tool-section-block all-tools-block">
+                  <div className="section-head">
+                    <div><span className="kicker">รวมไว้ให้ครบในหน้าเดียว</span><h2>เครื่องมือทั้งหมด</h2></div>
+                    <span className="section-note">{tools.length} เครื่องมือ</span>
+                  </div>
+                  <div className="tool-grid">
+                    {tools.map((tool) => (
+                      <ToolCard key={tool.id} tool={tool} favorite={favorites.includes(tool.id)} onFavorite={() => toggleFavorite(tool.id)} onOpen={() => openTool(tool)} />
+                    ))}
+                  </div>
+                </div>
               </div>
             )}
           </div>
         </section>
 
-        <section id="about" className="section daily-section">
-          <div className="shell daily-card">
-            <div className="daily-copy">
-              <span className="kicker light">ครบเครื่องในทุกวัน</span>
-              <h2>ทุกเครื่องมืออยู่ในที่เดียว เปิดแล้วใช้ได้ทันที</h2>
-              <p>ดีไซน์ของครบเครื่องยึดโทนเขียวจากแบรนด์เป็นหลัก พร้อมคงความอ่านง่าย ความเร็ว และการใช้งานบนมือถือเป็นหัวใจสำคัญ</p>
-              <div className="trust-row"><span>✓ ใช้ฟรี</span><span>✓ ไม่ต้องสมัคร</span><span>✓ Mobile-first</span></div>
-            </div>
-            <div className="about-logo-wrap" aria-hidden="true">
+        <section id="about" className="section about-section">
+          <div className="shell about-card">
+            <div className="about-brand">
               <Logo className="about-logo" />
+              <div><strong>ครบเครื่อง</strong><small>Krobkrueng</small></div>
             </div>
+            <div className="about-copy">
+              <span className="kicker">ทำเรื่องประจำวันให้เบาลง</span>
+              <h2>เครื่องมือเล็ก ๆ ที่เปิดแล้วใช้ได้ทันที</h2>
+              <p>ครบเครื่องออกแบบให้เร็ว อ่านง่าย และใช้งานสะดวกบนมือถือ เครื่องมือพื้นฐานใช้งานฟรีโดยไม่ต้องสมัครสมาชิก</p>
+            </div>
+            <div className="trust-row"><span>ใช้ฟรี</span><span>ไม่ต้องสมัคร</span><span>Mobile-first</span></div>
           </div>
         </section>
       </main>
 
-      <footer className="footer">
+      <footer id="privacy" className="footer">
         <div className="shell footer-grid">
           <div className="footer-brand">
             <Logo className="footer-logo" />
             <div><strong>ครบเครื่อง</strong><p>เครื่องมือฟรีสำหรับชีวิตประจำวัน</p></div>
           </div>
           <div className="footer-links">
-            <a href="#popular">เครื่องมือทั้งหมด</a>
+            <a href="#tools">เครื่องมือทั้งหมด</a>
             <a href="#categories">หมวดหมู่</a>
-            <a href="#about">เกี่ยวกับครบเครื่อง</a>
-            <a href="#top">ความเป็นส่วนตัว</a>
+            <a href="#about">เกี่ยวกับ</a>
+            <a href="#privacy">ความเป็นส่วนตัว</a>
           </div>
+          <div className="privacy-note">รายการโปรด ธีม และประวัติใช้งานล่าสุดจัดเก็บในเบราว์เซอร์ของอุปกรณ์นี้</div>
           <span className="copyright">© 2026 Krobkrueng</span>
         </div>
       </footer>
 
       <nav className="mobile-nav" aria-label="เมนูมือถือ">
-        <a className="active" href="#top"><Icon name="home" size={21} /><b>หน้าหลัก</b></a>
-        <a href="#popular"><Icon name="grid" size={21} /><b>เครื่องมือ</b></a>
-        <a href="#categories"><Icon name="bag" size={21} /><b>หมวดหมู่</b></a>
-        <a href="#about"><Icon name="info" size={21} /><b>เกี่ยวกับ</b></a>
+        <a className="active" href="#top"><Icon name="home" size={20} /><b>หน้าหลัก</b><i /></a>
+        <a href="#tools"><Icon name="grid" size={20} /><b>เครื่องมือ</b><i /></a>
+        <a href="#categories"><Icon name="bag" size={20} /><b>หมวดหมู่</b><i /></a>
+        <a href="#about"><Icon name="info" size={20} /><b>เกี่ยวกับ</b><i /></a>
       </nav>
 
       {toast && <div className="toast" role="status">{toast}</div>}
