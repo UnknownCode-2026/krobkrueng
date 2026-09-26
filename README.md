@@ -2,22 +2,26 @@
 
 เว็บไซต์เครื่องมือออนไลน์ฟรีสำหรับช่วยเรื่องเล็ก ๆ ในชีวิตประจำวัน
 
-## V1.1 — UX/UI Redesign
+## V1.2 — Interactive UX
 
-V1.1 ปรับหน้า Home ใหม่ให้มีลักษณะเป็นเว็บเครื่องมือที่ใช้งานง่ายตั้งแต่เข้าหน้าแรก โดยเน้น Mobile-first มากขึ้นและลดความรู้สึกแบบ Landing Page
+V1.2 เพิ่มระบบโต้ตอบบนหน้า Home โดยรักษาโครงสร้างและภาพรวมจาก V1.1 เอาไว้
 
-- Header เรียบและกระชับ
-- Hero สั้นลง พร้อมช่องค้นหาเป็นจุดหลัก
-- Quick search tags
-- หมวดหมู่แบบเลื่อนบนมือถือ
-- Tool cards แบบ 2 คอลัมน์บนมือถือ / 4 คอลัมน์บนจอใหญ่
-- แสดงเครื่องมือยอดนิยมชัดเจน
-- Section อธิบายแนวคิดการใช้งานแบบสั้น
-- Bottom navigation สำหรับมือถือ
-- Design system เขียว / ขาว / เทาอ่อน
-- ปรับ spacing, typography, card radius และ interaction ใหม่
-- SEO metadata, canonical และ Open Graph ชี้ไปโดเมน Production ใหม่
+- Krobkrueng Icon Set แบบ SVG ที่ออกแบบใช้ภายในโปรเจกต์
+- หมวดหมู่แบบ Horizontal Slider พร้อม Scroll Snap
+- ปุ่มเลื่อนหมวดหมู่บน Desktop
+- Category Filter ทำงานจริง
+- Search แบบ Real-time จากชื่อ คำอธิบาย หมวดหมู่ และ Keyword
+- Empty State เมื่อไม่พบเครื่องมือ
+- Tool Card ปรับใหม่ พร้อมสถานะยอดนิยม / ใหม่
+- Favorites เก็บด้วย Local Storage
+- Recent Tools เก็บด้วย Local Storage
+- Light / Dark Mode และจำค่าที่ผู้ใช้เลือก
+- Mobile Bottom Navigation ใช้ Icon ชุดเดียวกับเว็บไซต์
+- Micro-interactions สำหรับ Card, Slider, Favorite และ Theme
+- Footer ปรับโครงสร้างใหม่
+- รองรับ prefers-reduced-motion
+- ไม่มีเลขเวอร์ชันหรือข้อความอธิบายเวอร์ชันแสดงบนหน้าเว็บไซต์สาธารณะ
 
-ยังไม่มี Login, Database, Admin, Payment หรือระบบสมาชิกใน V1.1
+ยังไม่มี Login, Database, Admin, Payment หรือระบบสมาชิกใน V1.2
 
 Production: https://krobkrueng.netlify.app/
