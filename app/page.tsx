@@ -35,14 +35,14 @@ export default function HomePage() {
             <a href="#popular">เครื่องมือ</a>
             <a href="#categories">หมวดหมู่</a>
           </nav>
-          <span className="version-badge">V1.1</span>
+          
         </div>
       </header>
 
       <main id="top">
         <section className="hero">
           <div className="shell hero-inner">
-            <span className="update-pill"><i /> อัปเดตใหม่ · V1.1</span>
+            <span className="update-pill"><i /> เครื่องมือฟรี ใช้งานง่าย</span>
             <h1>เรื่องเล็ก ๆ ในชีวิต<br /><span>ให้ครบเครื่องช่วย</span></h1>
             <p>รวมเครื่องมือออนไลน์ฟรีที่ช่วยคิด คำนวณ และจัดการเรื่องประจำวันให้ง่ายขึ้น</p>
 
@@ -140,9 +140,9 @@ export default function HomePage() {
         <section className="section roadmap-section">
           <div className="shell roadmap">
             <div>
-              <span className="kicker">V1.1 Foundation</span>
+              <span className="kicker">ออกแบบเพื่อการใช้งานจริง</span>
               <h2>ตอนนี้เราโฟกัสให้หน้าแรกใช้ง่ายที่สุดก่อน</h2>
-              <p>เวอร์ชันถัดไปจะเริ่มเปิดเครื่องมือจริงทีละตัว โดยใช้หน้าตาและประสบการณ์จาก V1.1 เป็นมาตรฐานของทั้งเว็บ</p>
+              <p>เรากำลังทยอยเปิดเครื่องมือจริงทีละตัว โดยยึดความเรียบง่าย รวดเร็ว และใช้งานสะดวกบนมือถือเป็นหลัก</p>
             </div>
             <a className="primary-button" href="#popular">ดูเครื่องมือที่เตรียมไว้</a>
           </div>
@@ -155,7 +155,7 @@ export default function HomePage() {
             <span className="brand-mark small">ค</span>
             <div><strong>ครบเครื่อง</strong><p>เครื่องมือฟรีสำหรับชีวิตประจำวัน</p></div>
           </div>
-          <span>© 2026 Krobkrueng · V1.1</span>
+          <span>© 2026 Krobkrueng</span>
         </div>
       </footer>
 
