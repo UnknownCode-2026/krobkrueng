@@ -2,29 +2,26 @@
 
 เว็บไซต์เครื่องมือออนไลน์ฟรีสำหรับช่วยเรื่องเล็ก ๆ ในชีวิตประจำวัน
 
-## V1.4 — Clean Premium Utility
+## V1.5 — Custom Icon & Visual System
 
-V1.4 ปรับ UX/UI ครั้งใหญ่ให้หน้าหลักกลับมาเป็นเว็บเครื่องมือที่สะอาด ใช้งานเร็ว และมีภาพลักษณ์เป็น Product มากขึ้น โดยยึดสีจากโลโก้เป็น Brand System แต่ลด Neon, Glow และองค์ประกอบตกแต่งที่ไม่จำเป็น
+V1.5 อัปเกรดงานภาพของทั้งเว็บไซต์โดยคง Layout และ UX Foundation จาก V1.4 เอาไว้ เน้นให้ Icon ดูมีมิติ เป็นวัตถุจริงมากขึ้น และมีเอกลักษณ์ของแบรนด์ครบเครื่อง
 
-- ปรับ Design Direction เป็น Clean + Premium + Utility + Green Brand
-- Hero ใหม่แบบสั้น เน้นข้อความและ Search เป็นจุดหลัก
-- โลโก้ใช้ใน Header, Hero แบบย่อ, About, Footer และ metadata
-- Search V2 พร้อม Real-time Search และ Search Suggestions
-- Quick Search สำหรับคำยอดนิยม
-- Category Slider V2 แบบ Compact Pills พร้อม Scroll Snap
-- Category Filter ทำงานจริง
-- แยกส่วนเครื่องมือยอดนิยม / เพิ่มใหม่ / เครื่องมือทั้งหมด
-- Tool Card V3 ลดความรก ใช้ Icon SVG ของ Krobkrueng
-- Favorites และ Recent Tools ยังเก็บด้วย Local Storage
-- Dark Mode V2 แบบ Deep Green อ่านง่ายกว่าเดิม
-- Mobile Bottom Navigation V3 พร้อม Active Indicator
-- About และ Footer แบบกระชับ
-- เพิ่มข้อความอธิบาย Local Storage ในส่วนความเป็นส่วนตัว
-- ปรับ Touch Target, Responsive Layout และ Mobile-first spacing
-- ลด Blur, Glow และ Animation ที่ไม่จำเป็นเพื่อให้หน้าเว็บเบาขึ้น
-- รองรับ prefers-reduced-motion
+- เพิ่ม Krobkrueng Custom Icon System แยกเป็น Tool Icon / Category Icon / UI Icon
+- Tool Icons เปลี่ยนจากเส้น SVG ธรรมดาเป็น Soft 3D SVG แบบวัตถุจริงมากขึ้น
+- ออกแบบ Icon เฉพาะสำหรับ หารค่าใช้จ่าย, ส่วนลด, อาหาร, เวลา, นับวัน, เงินเดือน, ความคุ้มค่า และเปอร์เซ็นต์
+- ใช้ Brand Green, Deep Green, Lime, Cream และสีเสริมในสัดส่วนเดียวกันทั้งชุด
+- เพิ่ม Highlight, Layer, Shadow และ Depth โดยไม่ใช้ Emoji
+- Category Slider ใช้ Dimensional Icon แบบย่อ
+- Search Suggestions ใช้ Icon จริงของแต่ละเครื่องมือ
+- Navigation / Search / Favorite / Arrow ยังใช้ Custom Vector Line เพื่อให้ UI อ่านง่าย
+- Tool Card ปรับพื้นที่ Icon ให้เด่นขึ้นโดยไม่รื้อ Layout
+- เพิ่ม Hover lift และ Favorite micro-animation
+- รองรับ Light / Dark Mode สำหรับ Icon System
+- Mobile ปรับ Icon scale และ spacing ให้เหมาะกับจอเล็ก
+- แยก Icon Component ไปไว้ที่ `components/KrobkruengIcons.tsx` เพื่อรองรับการเพิ่มเครื่องมือใหม่ในอนาคต
+- คง Search V2, Search Suggestions, Category Filter, Favorites, Recent Tools และ Local Storage
 - ไม่แสดงเลขเวอร์ชันบนหน้าเว็บไซต์สาธารณะ
 
-ยังไม่มี Login, Database, Admin, Payment หรือระบบสมาชิกใน V1.4
+ยังไม่มี Login, Database, Admin, Payment หรือระบบสมาชิกใน V1.5
 
 Production: https://krobkrueng.netlify.app/
